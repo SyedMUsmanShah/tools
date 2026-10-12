@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- page:start -->
+<title>Word PDF Converter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working column — direction switch, drop zone, options, then a file queue beside a live preview (stacks on phones). */
+:root {
+  --bg: #eef1f5;
+  --surface: #ffffff;
+  --sunken: #f6f8fa;
+  --ink: #18212d;
+  --muted: #5b6676;
+  --line: #d6dce4;
+  --word: #2a5699;
+  --word-soft: #e3ebf7;
+  --pdf: #b8322b;
+  --pdf-soft: #f8e4e2;
+  --ok: #2c7a4b;
+  --warn: #9a6200;
+  --paper: #ffffff;
+  --paper-ink: #1d1d1f;
+  --font-ui: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 10px;
+  --accent: var(--word);
+  --accent-soft: var(--word-soft);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151b; --surface: #1a1f27; --sunken: #151a21; --ink: #e5e9ef; --muted: #98a2b1;
+    --line: #2b323d; --word: #84a9e6; --word-soft: #1f2b40; --pdf: #ee8079; --pdf-soft: #3a2020;
+    --ok: #6cc38d; --warn: #e2b24f; --paper: #f4f4f2; --paper-ink: #1d1d1f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151b; --surface: #1a1f27; --sunken: #151a21; --ink: #e5e9ef; --muted: #98a2b1;
+  --line: #2b323d; --word: #84a9e6; --word-soft: #1f2b40; --pdf: #ee8079; --pdf-soft: #3a2020;
+  --ok: #6cc38d; --warn: #e2b24f; --paper: #f4f4f2; --paper-ink: #1d1d1f; color-scheme: dark;
+}
+body[data-dir="pdf2word"] { --accent: var(--pdf); --accent-soft: var(--pdf-soft); }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 var(--font-ui);
+  padding-inline: 16px; padding-block: 28px 48px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 20px; }
+
+header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; }
+h1 { margin: 0; font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+h1 .w { color: var(--word); } h1 .p { color: var(--pdf); }
+.lede { margin: 4px 0 0; color: var(--muted); max-width: 60ch; }
+.privacy { font: 12px/1.4 var(--font-mono); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; white-space: nowrap; }
+
+.switch { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 6px; }
+.switch button {
+  appearance: none; border: 0; background: transparent; color: var(--muted); cursor: pointer;
+  font: 600 15px/1.2 var(--font-ui); padding: 12px 10px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.switch button:hover { color: var(--ink); background: var(--sunken); }
+.switch button[aria-selected="true"] { background: var(--accent-soft); color: var(--ink); }
+.switch button:focus-visible, .btn:focus-visible, .drop:focus-visible, select:focus-visible, .row:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tag { font: 600 11px/1 var(--font-mono); letter-spacing: 0.06em; padding: 4px 6px; border-radius: 4px; color: var(--surface); }
+.tag.docx { background: var(--word); } .tag.pdf { background: var(--pdf); }
+.arrow { color: var(--muted); }
+.switch .label { white-space: nowrap; }
+@media (max-width: 560px) { .switch button { flex-wrap: wrap; gap: 6px; padding: 10px 6px; } .switch .label { flex-basis: 100%; text-align: center; font-size: 14px; } }
+
+.drop {
+  border: 2px dashed var(--line); border-radius: var(--radius); background: var(--surface);
+  padding: 28px 20px; text-align: center; cursor: pointer; transition: border-color .15s, background .15s;
+  display: grid; gap: 6px; justify-items: center;
+}
+.drop:hover, .drop.over { border-color: var(--accent); background: var(--accent-soft); }
+.drop strong { font-size: 1.05rem; }
+.drop small { color: var(--muted); }
+.drop input { display: none; }
+
+.options { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; color: var(--muted); font-size: 14px; }
+.options label { display: inline-flex; gap: 8px; align-items: center; }
+select { font: 14px var(--font-ui); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; }
+
+.work { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 820px) { .work { grid-template-columns: minmax(0, 1fr); } }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); min-width: 0; }
+.panel > h2 { margin: 0; padding: 12px 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; }
+.panel > h2 span:last-child { font-family: var(--font-mono); letter-spacing: 0; text-transform: none; }
+
+.queue { list-style: none; margin: 0; padding: 0; }
+.queue .empty { padding: 20px 16px; color: var(--muted); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); cursor: pointer; align-items: center; }
+.row:last-child { border-bottom: 0; }
+.row:hover { background: var(--sunken); }
+.row[aria-current="true"] { background: var(--accent-soft); }
+.row .name { font-weight: 600; overflow-wrap: anywhere; }
+.row .meta { grid-column: 1 / -1; font: 12px/1.4 var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip { font: 600 11px/1 var(--font-mono); padding: 4px 7px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.chip.ok { color: var(--ok); } .chip.busy { color: var(--muted); } .chip.err { color: var(--pdf); } .chip.ex { color: var(--warn); }
+.actions { grid-column: 1 / -1; display: flex; gap: 8px; flex-wrap: wrap; }
+.note { grid-column: 1 / -1; font-size: 13px; color: var(--warn); }
+
+.btn { appearance: none; font: 600 13px/1 var(--font-ui); padding: 8px 12px; border-radius: 6px; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: .5; cursor: default; }
+
+.preview { padding: 20px; background: var(--sunken); border-radius: 0 0 var(--radius) var(--radius); max-height: 72vh; overflow: auto; }
+.page {
+  background: var(--paper); color: var(--paper-ink); max-width: 680px; margin: 0 auto; padding: 48px 56px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.06);
+  font: 14px/1.55 Georgia, "Times New Roman", serif; overflow-wrap: anywhere;
+}
+.page + .page { margin-top: 16px; }
+.page h1, .page h2, .page h3 { font-family: var(--font-ui); line-height: 1.25; margin: 0 0 .5em; letter-spacing: 0; }
+.page h1 { font-size: 1.6em; } .page h2 { font-size: 1.3em; } .page h3 { font-size: 1.1em; }
+.page p { margin: 0 0 .8em; }
+.page table { border-collapse: collapse; margin: 0 0 1em; width: 100%; }
+.page td, .page th { border: 1px solid #c8c8c8; padding: 4px 8px; vertical-align: top; }
+.page img { max-width: 100%; height: auto; }
+.page .pageimg { display: block; width: 100%; border: 1px solid #ddd; }
+.page-label { text-align: center; font: 11px var(--font-mono); color: var(--muted); margin: 6px 0 0; }
+@media (max-width: 520px) { .page { padding: 28px 22px; } .preview { padding: 10px; } }
+
+.limits { color: var(--muted); font-size: 13px; max-width: 75ch; }
+.limits summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+.limits ul { padding-left: 1.2em; margin: 8px 0 0; }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-size: 14px; max-width: calc(100% - 32px); }
+@media (prefers-reduced-motion: no-preference) { .drop, .row { transition: background .15s, border-color .15s; } }
+</style>
+<!-- page:head-end -->
+</head>
+<body data-dir="word2pdf">
+<!-- page:body -->
+<div class="wrap">
+  <header>
+    <div>
+      <h1><span class="w">Word</span> ⇄ <span class="p">PDF</span> Converter</h1>
+      <p class="lede">Turn .docx files into PDFs, or PDFs back into editable Word documents. Drop in one file or a batch.</p>
+    </div>
+    <span class="privacy">Files never leave your browser</span>
+  </header>
+
+  <div class="switch" role="tablist" aria-label="Conversion direction">
+    <button id="tab-word2pdf" role="tab" aria-selected="true" data-dir="word2pdf"><span class="tag docx">DOCX</span><span class="arrow">→</span><span class="tag pdf">PDF</span><span class="label">Word to PDF</span></button>
+    <button id="tab-pdf2word" role="tab" aria-selected="false" data-dir="pdf2word"><span class="tag pdf">PDF</span><span class="arrow">→</span><span class="tag docx">DOCX</span><span class="label">PDF to Word</span></button>
+  </div>
+
+  <label class="drop" id="drop" tabindex="0">
+    <strong id="drop-title">Drop .docx files here, or click to choose</strong>
+    <small id="drop-hint">Word 2007 and later (.docx). Old .doc files need to be re-saved as .docx first.</small>
+    <input id="file-input" type="file" multiple accept=".docx">
+  </label>
+
+  <div class="options">
+    <label id="opt-page-wrap">Page size
+      <select id="opt-page"><option value="A4">A4 · 595 × 842 pt</option><option value="LETTER">Letter · 612 × 792 pt</option><option value="LEGAL">Legal · 612 × 1008 pt</option></select>
+    </label>
+    <label id="opt-mode-wrap" hidden>Output
+      <select id="opt-mode"><option value="text">Editable text (headings, bold, italics)</option><option value="image">Exact look (each page as a picture)</option></select>
+    </label>
+  </div>
+
+  <div class="work">
+    <section class="panel" aria-label="Files">
+      <h2><span>Files</span><span id="count">0</span></h2>
+      <ul class="queue" id="queue"></ul>
+    </section>
+    <section class="panel" aria-label="Preview">
+      <h2><span>Preview</span><span id="preview-name"></span></h2>
+      <div class="preview" id="preview"><p class="page-label">Pick a file to see its converted content.</p></div>
+    </section>
+  </div>
+
+  <details class="limits">
+    <summary>What converts well</summary>
+    <ul>
+      <li><b>Word → PDF</b> keeps headings, paragraphs, bold, italics, underline, lists, tables, links and embedded PNG/JPEG/GIF images. Page headers, footers, columns, text boxes and exact fonts are not reproduced; text is set in a clean standard font.</li>
+      <li><b>PDF → Word, editable text</b> rebuilds paragraphs and headings from the PDF's text, with bold, italics, font sizes and page breaks. Complex multi-column layouts and tables come through as plain paragraphs.</li>
+      <li><b>PDF → Word, exact look</b> places each PDF page into Word as a picture, so it looks identical but the text is not editable. Scanned pages with no text layer always come through this way.</li>
+      <li>Everything runs locally in this page. Nothing is uploaded.</li>
+    </ul>
+  </details>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.10/build/pdfmake.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.10/build/vfs_fonts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake@2.5.13/browser.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script>
+(() => {
+  "use strict";
+  const PDFJS_WORKER = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+  const PAGE_SIZES = { A4: [595.28, 841.89], LETTER: [612, 792], LEGAL: [612, 1008] };
+  const $ = (id) => document.getElementById(id);
+
+  // ---------- pdf.js worker (a blob worker that imports the CDN script works in sandboxed frames) ----------
+  pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
+  try {
+    const src = URL.createObjectURL(new Blob([`importScripts(${JSON.stringify(PDFJS_WORKER)});`], { type: "text/javascript" }));
+    pdfjsLib.GlobalWorkerOptions.workerPort = new Worker(src);
+  } catch (e) { /* pdf.js falls back to running on the main thread */ }
+
+  // ---------- saving files: the artifact viewer's downloads capability, else a plain download link ----------
+  const downloadsReady = window.claude && typeof window.claude.use === "function"
+    ? window.claude.use("downloads").catch(() => null)
+    : Promise.resolve(null);
+
+  async function saveFile(filename, blob) {
+    const dl = await downloadsReady;
+    if (dl) {
+      try { await dl.save({ filename, data: blob }); toast(`Saved ${filename}`); }
+      catch (e) {
+        if (e && e.code === "declined") toast("Save cancelled");
+        else if (e && e.code === "rate_limited") toast("Another save is waiting for your answer");
+        else toast(`Could not save ${filename}${e && e.message ? ": " + e.message : ""}`);
+      }
+      return;
+    }
+    const url = URL.createObjectURL(blob);
+    const a = Object.assign(document.createElement("a"), { href: url, download: filename });
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+  }
+
+  let toastTimer;
+  function toast(msg) {
+    const t = $("toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3200);
+  }
+
+  // ---------- helpers ----------
+  const fmtSize = (n) => n < 1024 ? `${n} B` : n < 1048576 ? `${(n / 1024).toFixed(1)} KB` : `${(n / 1048576).toFixed(2)} MB`;
+  const baseName = (n) => n.replace(/\.[^.]+$/, "");
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function blobToDataURL(blob) {
+    return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(blob); });
+  }
+  function loadImage(src) {
+    return new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+  }
+
+  // Minimal .zip reader (a .docx is a zip) so we can see how big each image is set to appear in the document.
+  async function readZipEntry(buf, wanted) {
+    const v = new DataView(buf);
+    let eocd = -1;
+    for (let i = buf.byteLength - 22; i >= Math.max(0, buf.byteLength - 65557); i--) if (v.getUint32(i, true) === 0x06054b50) { eocd = i; break; }
+    if (eocd < 0) return null;
+    let p = v.getUint32(eocd + 16, true);
+    const count = v.getUint16(eocd + 10, true);
+    const dec = new TextDecoder();
+    for (let n = 0; n < count && v.getUint32(p, true) === 0x02014b50; n++) {
+      const method = v.getUint16(p + 10, true), size = v.getUint32(p + 20, true);
+      const nameLen = v.getUint16(p + 28, true), extraLen = v.getUint16(p + 30, true), commentLen = v.getUint16(p + 32, true);
+      const local = v.getUint32(p + 42, true);
+      const name = dec.decode(new Uint8Array(buf, p + 46, nameLen));
+      if (name === wanted) {
+        const start = local + 30 + v.getUint16(local + 26, true) + v.getUint16(local + 28, true);
+        const raw = new Uint8Array(buf, start, size);
+        if (method === 0) return dec.decode(raw);
+        if (method !== 8 || typeof DecompressionStream === "undefined") return null;
+        const stream = new Blob([raw]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+        return await new Response(stream).text();
+      }
+      p += 46 + nameLen + extraLen + commentLen;
+    }
+    return null;
+  }
+
+  // Display sizes (in points) of the pictures in the main document, in document order.
+  async function docxImageSizes(arrayBuffer) {
+    try {
+      const xml = await readZipEntry(arrayBuffer, "word/document.xml");
+      if (!xml) return [];
+      const sizes = [];
+      const unit = { pt: 1, in: 72, px: 0.75, cm: 28.3465, mm: 2.83465 };
+      for (const m of xml.matchAll(/<w:drawing>[\s\S]*?<\/w:drawing>|<v:shape\b[\s\S]*?<\/v:shape>/g)) {
+        const block = m[0];
+        if (block.startsWith("<w:drawing")) {
+          if (!/<a:blip\b/.test(block)) continue;
+          const e = block.match(/<wp:extent cx="(\d+)" cy="(\d+)"/);
+          sizes.push(e ? { w: +e[1] / 12700, h: +e[2] / 12700 } : null);
+        } else {
+          if (!/<v:imagedata\b/.test(block)) continue;
+          const st = (block.match(/style="([^"]*)"/) || [])[1] || "";
+          const get = (k) => { const r = st.match(new RegExp(`(?:^|;)\\s*${k}:\\s*([\\d.]+)(pt|in|px|cm|mm)`)); return r ? +r[1] * unit[r[2]] : 0; };
+          const w = get("width"), h = get("height");
+          sizes.push(w && h ? { w, h } : null);
+        }
+      }
+      return sizes;
+    } catch (e) { return []; }
+  }
+
+  // =====================================================================
+  // Word -> PDF: mammoth (docx -> HTML), html-to-pdfmake + pdfmake (HTML -> PDF with real, selectable text)
+  // =====================================================================
+  async function wordToPdf(file, pageSize) {
+    if (/\.doc$/i.test(file.name)) throw new Error("This is an old .doc file. Open it in Word and save it as .docx, then try again.");
+    const arrayBuffer = await file.arrayBuffer();
+    const notes = [];
+    const sizes = await docxImageSizes(arrayBuffer);
+    let imageIndex = 0;
+    const result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer.slice(0) }, {
+      convertImage: mammoth.images.imgElement(async (image) => {
+        const size = sizes[imageIndex++];
+        const dims = size ? { width: String(Math.round(size.w)), height: String(Math.round(size.h)) } : {};
+        const b64 = await image.read("base64");
+        const type = image.contentType || "image/png";
+        let src = `data:${type};base64,${b64}`;
+        if (/^image\/(png|jpe?g)$/.test(type)) return { src, ...dims };
+        // pdfmake only embeds PNG and JPEG; redraw anything else the browser can decode.
+        try {
+          const img = await loadImage(src);
+          const c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight;
+          c.getContext("2d").drawImage(img, 0, 0);
+          return { src: c.toDataURL("image/png"), ...dims };
+        } catch (e) { notes.push(`Skipped an image in ${type.replace("image/", "").toUpperCase()} format.`); return { src: "" }; }
+      }),
+    });
+    const html = result.value.replace(/<img src=""[^>]*>/g, "");
+    const warnings = result.messages.filter((m) => m.type === "warning").length;
+
+    const [w, h] = PAGE_SIZES[pageSize];
+    const margin = 64;
+    const content = htmlToPdfmake(html || "<p></p>", {
+      window, tableAutoSize: true,
+      defaultStyles: {
+        p: { margin: [0, 0, 0, 8] },
+        h1: { fontSize: 20, bold: true, margin: [0, 10, 0, 8] },
+        h2: { fontSize: 16, bold: true, margin: [0, 10, 0, 6] },
+        h3: { fontSize: 13.5, bold: true, margin: [0, 8, 0, 5] },
+        h4: { fontSize: 12, bold: true, margin: [0, 6, 0, 4] },
+        a: { color: "#1a4fa0", decoration: "underline" },
+        td: { margin: [3, 3, 3, 3] }, th: { bold: true, fillColor: "#eeeeee", margin: [3, 3, 3, 3] },
+        ul: { margin: [0, 0, 0, 8] }, ol: { margin: [0, 0, 0, 8] },
+      },
+    });
+    const maxW = w - margin * 2, maxH = h - margin * 2;
+    (function fit(node) {
+      if (Array.isArray(node)) return node.forEach(fit);
+      if (!node || typeof node !== "object") return;
+      if (node.image) {
+        // Keep the size the image had in Word; shrink it only if it would not fit the page.
+        const w0 = Number(node.width), h0 = Number(node.height);
+        delete node.width; delete node.height;
+        if (w0 > 0 && h0 > 0) { const k = Math.min(1, maxW / w0, maxH / h0); node.width = w0 * k; node.height = h0 * k; }
+        else node.fit = [maxW, maxH];
+      }
+      for (const k of ["stack", "columns", "ul", "ol", "text"]) if (node[k]) fit(node[k]);
+      if (node.table && node.table.body) node.table.body.forEach(fit);
+    })(content);
+
+    const doc = {
+      pageSize: { width: w, height: h }, pageMargins: [margin, margin, margin, margin],
+      info: { title: baseName(file.name), creator: "Word PDF Converter" },
+      defaultStyle: { fontSize: 11, lineHeight: 1.25 },
+      content,
+      footer: (cur, total) => total > 1 ? { text: `${cur} / ${total}`, alignment: "center", fontSize: 8, color: "#888888", margin: [0, 20, 0, 0] } : null,
+    };
+    const blob = await new Promise((res, rej) => {
+      try { pdfMake.createPdf(doc).getBlob(res); } catch (e) { rej(e); }
+    });
+    // Count pages in what we produced so the queue can show it.
+    let pages = null;
+    try { const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(await blob.arrayBuffer()) }).promise; pages = pdf.numPages; pdf.destroy(); } catch (e) {}
+    if (warnings) notes.push(`${warnings} formatting detail${warnings > 1 ? "s" : ""} could not be carried over.`);
+    return {
+      blob, filename: `${baseName(file.name)}.pdf`,
+      meta: `${pages ? pages + " page" + (pages > 1 ? "s" : "") + " · " : ""}${pageSize === "LETTER" ? "Letter" : pageSize === "LEGAL" ? "Legal" : "A4"} · ${fmtSize(blob.size)}`,
+      notes, previewHTML: `<div class="page">${html || "<p><i>This document has no text.</i></p>"}</div>`,
+    };
+  }
+
+  // =====================================================================
+  // PDF -> Word: pdf.js reads text runs with position, size and font; we rebuild lines,
+  // paragraphs and headings and write them with docx. Pages without text become pictures.
+  // =====================================================================
+  function cleanFontName(raw) {
+    if (!raw) return undefined;
+    let n = raw.replace(/^[A-Z]{6}\+/, "").split(/[-,]/)[0].replace(/(MT|PS|PSMT|Std|Pro)$/g, "");
+    n = n.replace(/([a-z])([A-Z])/g, "$1 $2").trim();
+    return n || undefined;
+  }
+
+  async function readPageLines(page) {
+    const tc = await page.getTextContent();
+    let fontInfo = {};
+    try {
+      await page.getOperatorList(); // loads the fonts so their real names are known
+      for (const item of tc.items) {
+        if (!item.fontName || fontInfo[item.fontName]) continue;
+        let f = null; try { f = page.commonObjs.get(item.fontName); } catch (e) {}
+        const name = (f && (f.name || f.loadedName)) || "";
+        fontInfo[item.fontName] = {
+          name: cleanFontName(name),
+          bold: /bold|black|heavy|semibold|demi/i.test(name) || (f && f.bold),
+          italic: /italic|oblique/i.test(name) || (f && f.italic),
+        };
+      }
+    } catch (e) { fontInfo = {}; }
+
+    const items = tc.items
+      .filter((it) => typeof it.str === "string" && (it.str.length || it.hasEOL))
+      .map((it) => {
+        const [a, b, c, d, x, y] = it.transform;
+        const size = Math.round(Math.hypot(c, d) * 2) / 2 || Math.abs(it.height) || 10;
+        const fi = fontInfo[it.fontName] || {};
+        return { str: it.str, x, y, w: it.width, size, bold: !!fi.bold, italic: !!fi.italic, font: fi.name };
+      })
+      .filter((it) => it.str.trim().length);
+
+    items.sort((p, q) => (q.y - p.y) || (p.x - q.x));
+    const lines = [];
+    for (const it of items) {
+      const line = lines.find((l) => Math.abs(l.y - it.y) < Math.max(l.size, it.size) * 0.45);
+      if (line) { line.items.push(it); line.size = Math.max(line.size, it.size); }
+      else lines.push({ y: it.y, size: it.size, items: [it] });
+    }
+    lines.sort((p, q) => q.y - p.y);
+    for (const l of lines) {
+      l.items.sort((p, q) => p.x - q.x);
+      const runs = [];
+      let prevEnd = null;
+      for (const it of l.items) {
+        let text = it.str;
+        if (prevEnd !== null && it.x - prevEnd > it.size * 0.18) {
+          const last = runs[runs.length - 1];
+          if (!/\s$/.test(last.text) && !/^\s/.test(text)) text = " " + text;
+        }
+        const last = runs[runs.length - 1];
+        if (last && last.bold === it.bold && last.italic === it.italic && last.size === it.size && last.font === it.font) last.text += text;
+        else runs.push({ text, bold: it.bold, italic: it.italic, size: it.size, font: it.font });
+        prevEnd = it.x + it.w;
+      }
+      l.runs = runs;
+      l.x0 = l.items[0].x;
+      l.x1 = Math.max(...l.items.map((i) => i.x + i.w));
+      l.text = runs.map((r) => r.text).join("");
+    }
+    return lines;
+  }
+
+  const BULLET = /^\s*([•●▪■◦‣∙·\-–—*]|\(?\d{1,3}[.)]|\(?[a-zA-Z][.)])\s+/;
+
+  function linesToParagraphs(lines, pageWidth) {
+    const paras = [];
+    let cur = null;
+    for (let i = 0; i < lines.length; i++) {
+      const l = lines[i], prev = lines[i - 1];
+      const gap = prev ? prev.y - l.y : 0;
+      const sameStyle = cur && Math.abs(cur.size - l.size) < 0.6;
+      const lineBreakOnly = prev && gap < l.size * 1.75 && gap > 0;
+      const startsList = BULLET.test(l.text);
+      if (cur && sameStyle && lineBreakOnly && !startsList && Math.abs(l.x0 - cur.lastX0) < l.size * 3) {
+        const lastRun = cur.runs[cur.runs.length - 1];
+        if (/[A-Za-z]-$/.test(lastRun.text) && /^[a-z]/.test(l.text)) lastRun.text = lastRun.text.slice(0, -1);
+        else if (!/\s$/.test(lastRun.text)) lastRun.text += " ";
+        cur.runs.push(...l.runs.map((r) => ({ ...r })));
+        cur.lines++; cur.lastX0 = l.x0; cur.x1 = Math.max(cur.x1, l.x1);
+      } else {
+        cur = { size: l.size, runs: l.runs.map((r) => ({ ...r })), lines: 1, x0: l.x0, lastX0: l.x0, x1: l.x1, spaceBefore: prev ? gap - l.size * 1.2 : 0 };
+        paras.push(cur);
+      }
+    }
+    for (const p of paras) {
+      const mid = (p.x0 + p.x1) / 2;
+      p.centered = p.lines <= 2 && (p.x1 - p.x0) < pageWidth * 0.7 && Math.abs(mid - pageWidth / 2) < pageWidth * 0.04 && p.x0 > pageWidth * 0.15;
+      p.text = p.runs.map((r) => r.text).join("");
+    }
+    return paras;
+  }
+
+  async function renderPage(page, scale) {
+    const vp = page.getViewport({ scale });
+    const c = document.createElement("canvas");
+    c.width = Math.ceil(vp.width); c.height = Math.ceil(vp.height);
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: ctx, viewport: vp }).promise;
+    const blob = await new Promise((res) => c.toBlob(res, "image/png"));
+    return { bytes: new Uint8Array(await blob.arrayBuffer()), url: c.toDataURL("image/png") };
+  }
+
+  async function pdfToWord(file, mode, onProgress) {
+    const D = window.docx;
+    const data = new Uint8Array(await file.arrayBuffer());
+    let pdf;
+    try { pdf = await pdfjsLib.getDocument({ data }).promise; }
+    catch (e) {
+      if (e && e.name === "PasswordException") throw new Error("This PDF is password-protected. Remove the password and try again.");
+      throw new Error("This file could not be read as a PDF.");
+    }
+    const first = await pdf.getPage(1);
+    const vp1 = first.getViewport({ scale: 1 });
+    const pageW = vp1.width, pageH = vp1.height;
+    const pt2px = 96 / 72; // docx image sizes are CSS pixels
+    const twip = (pt) => Math.round(pt * 20);
+    const margin = mode === "image" ? 0 : 72;
+
+    // Work out the body text size so headings stand out.
+    const allPages = [];
+    const sizeWeight = new Map();
+    for (let n = 1; n <= pdf.numPages; n++) {
+      onProgress && onProgress(`Reading page ${n} of ${pdf.numPages}`);
+      const page = n === 1 ? first : await pdf.getPage(n);
+      const lines = mode === "image" ? [] : await readPageLines(page);
+      for (const l of lines) for (const r of l.runs) sizeWeight.set(r.size, (sizeWeight.get(r.size) || 0) + r.text.length);
+      allPages.push({ page, lines });
+    }
+    let body = 11, best = -1;
+    for (const [s, wgt] of sizeWeight) if (wgt > best) { best = wgt; body = s; }
+
+    const children = [];
+    const previewPages = [];
+    let imagePages = 0;
+    for (let i = 0; i < allPages.length; i++) {
+      const { page, lines } = allPages[i];
+      const vp = page.getViewport({ scale: 1 });
+      const breakBefore = i > 0;
+      if (mode === "image" || lines.length === 0) {
+        onProgress && onProgress(`Drawing page ${i + 1} of ${pdf.numPages}`);
+        const img = await renderPage(page, 2);
+        const maxW = (pageW - margin * 2), maxH = (pageH - margin * 2);
+        const k = Math.min(maxW / vp.width, maxH / vp.height);
+        children.push(new D.Paragraph({
+          pageBreakBefore: breakBefore, alignment: D.AlignmentType.CENTER, spacing: { before: 0, after: 0 },
+          children: [new D.ImageRun({ data: img.bytes, transformation: { width: Math.floor(vp.width * k * pt2px), height: Math.floor(vp.height * k * pt2px) } })],
+        }));
+        previewPages.push(`<div class="page"><img class="pageimg" alt="Page ${i + 1}" src="${img.url}"></div><p class="page-label">Page ${i + 1} · picture</p>`);
+        imagePages++;
+        continue;
+      }
+      const paras = linesToParagraphs(lines, vp.width);
+      let html = "";
+      paras.forEach((p, j) => {
+        const ratio = p.size / body;
+        const allBold = p.runs.every((r) => r.bold);
+        const heading = ratio >= 1.45 ? D.HeadingLevel.HEADING_1 : ratio >= 1.18 ? D.HeadingLevel.HEADING_2 : (allBold && p.lines === 1 && p.text.length < 90 && ratio >= 0.99 && !BULLET.test(p.text)) ? D.HeadingLevel.HEADING_3 : undefined;
+        children.push(new D.Paragraph({
+          heading,
+          pageBreakBefore: breakBefore && j === 0,
+          alignment: p.centered ? D.AlignmentType.CENTER : undefined,
+          spacing: { after: Math.round(Math.max(4, Math.min(18, p.size * 0.6)) * 20), line: 264 },
+          children: p.runs.map((r) => new D.TextRun({
+            text: r.text, bold: r.bold, italics: r.italic, size: Math.round(r.size * 2), font: r.font, color: "000000",
+          })),
+        }));
+        const tag = heading === D.HeadingLevel.HEADING_1 ? "h1" : heading === D.HeadingLevel.HEADING_2 ? "h2" : heading === D.HeadingLevel.HEADING_3 ? "h3" : "p";
+        const inner = p.runs.map((r) => { let t = esc(r.text); if (r.bold) t = `<b>${t}</b>`; if (r.italic) t = `<i>${t}</i>`; return t; }).join("");
+        html += `<${tag}${p.centered ? ' style="text-align:center"' : ""}>${inner}</${tag}>`;
+      });
+      previewPages.push(`<div class="page">${html}</div><p class="page-label">Page ${i + 1}</p>`);
+    }
+
+    const doc = new D.Document({
+      creator: "Word PDF Converter", title: baseName(file.name),
+      styles: { default: { document: { run: { font: "Calibri", size: Math.round(body * 2) } } } },
+      sections: [{
+        properties: { page: {
+          size: { width: twip(pageW), height: twip(pageH), orientation: pageW > pageH ? D.PageOrientation.LANDSCAPE : D.PageOrientation.PORTRAIT },
+          margin: { top: twip(margin), right: twip(margin), bottom: twip(margin), left: twip(margin) },
+        } },
+        children: children.length ? children : [new D.Paragraph("")],
+      }],
+    });
+    const blob = await D.Packer.toBlob(doc);
+    const numPages = pdf.numPages;
+    pdf.destroy();
+    const notes = [];
+    if (mode === "text" && imagePages) notes.push(imagePages === numPages
+      ? "This PDF has no selectable text (it is probably a scan), so every page was placed as a picture."
+      : `${imagePages} page${imagePages > 1 ? "s have" : " has"} no selectable text and ${imagePages > 1 ? "were" : "was"} placed as a picture.`);
+    return {
+      blob, filename: `${baseName(file.name)}.docx`,
+      meta: `${numPages} page${numPages > 1 ? "s" : ""} · ${Math.round(pageW)} × ${Math.round(pageH)} pt · ${fmtSize(blob.size)}`,
+      notes, previewHTML: previewPages.join(""),
+    };
+  }
+
+  // =====================================================================
+  // Queue + UI
+  // =====================================================================
+  const state = { dir: "word2pdf", jobs: { word2pdf: [], pdf2word: [] }, selected: { word2pdf: null, pdf2word: null } };
+  let seq = 0;
+  let chain = Promise.resolve();
+
+  const DIR = {
+    word2pdf: { accept: ".docx,.doc", title: "Drop .docx files here, or click to choose", hint: "Word 2007 and later (.docx). Old .doc files need to be re-saved as .docx first.", ok: /\.(docx|doc)$/i },
+    pdf2word: { accept: ".pdf", title: "Drop PDF files here, or click to choose", hint: "Any PDF. Password-protected files need the password removed first.", ok: /\.pdf$/i },
+  };
+
+  function setDir(dir) {
+    state.dir = dir;
+    document.body.dataset.dir = dir;
+    for (const b of document.querySelectorAll(".switch button")) b.setAttribute("aria-selected", String(b.dataset.dir === dir));
+    $("file-input").accept = DIR[dir].accept;
+    $("drop-title").textContent = DIR[dir].title;
+    $("drop-hint").textContent = DIR[dir].hint;
+    $("opt-page-wrap").hidden = dir !== "word2pdf";
+    $("opt-mode-wrap").hidden = dir !== "pdf2word";
+    try { localStorage.setItem("wpc-dir", dir); } catch (e) {}
+    render();
+  }
+
+  function addFiles(fileList, dir = state.dir, example = false) {
+    const files = Array.from(fileList);
+    const bad = files.filter((f) => !DIR[dir].ok.test(f.name));
+    if (bad.length) toast(`${bad.map((f) => f.name).join(", ")} ${bad.length > 1 ? "are" : "is"} not a ${dir === "word2pdf" ? "Word" : "PDF"} file`);
+    for (const file of files.filter((f) => DIR[dir].ok.test(f.name))) {
+      const job = { id: ++seq, dir, file, example, status: "queued", result: null, error: null, progress: "Waiting" };
+      state.jobs[dir].unshift(job);
+      state.selected[dir] = job.id;
+      enqueue(job);
+    }
+    render();
+  }
+
+  function enqueue(job) {
+    chain = chain.then(() => runJob(job));
+    return chain;
+  }
+
+  async function runJob(job) {
+    job.status = "busy"; job.progress = "Converting"; render();
+    try {
+      job.result = job.dir === "word2pdf"
+        ? await wordToPdf(job.file, $("opt-page").value)
+        : await pdfToWord(job.file, $("opt-mode").value, (msg) => { job.progress = msg; renderQueue(); });
+      job.status = "done";
+    } catch (e) {
+      console.error(e);
+      job.status = "error"; job.error = (e && e.message) || "Conversion failed.";
+    }
+    render();
+  }
+
+  function render() { renderQueue(); renderPreview(); }
+
+  function renderQueue() {
+    const jobs = state.jobs[state.dir];
+    $("count").textContent = String(jobs.length);
+    const q = $("queue");
+    if (!jobs.length) { q.innerHTML = `<li class="empty">No files yet. Add some above.</li>`; return; }
+    q.innerHTML = jobs.map((j) => {
+      const chip = j.status === "done" ? `<span class="chip ok">Ready</span>` : j.status === "error" ? `<span class="chip err">Failed</span>` : `<span class="chip busy">${esc(j.progress)}</span>`;
+      const outExt = j.dir === "word2pdf" ? "PDF" : "Word";
+      const notes = j.status === "error" ? [j.error] : (j.result ? j.result.notes : []);
+      return `<li class="row" tabindex="0" data-id="${j.id}" aria-current="${state.selected[state.dir] === j.id}">
+        <span class="name">${esc(j.file.name)}</span>
+        <span>${j.example ? '<span class="chip ex">Example</span> ' : ""}${chip}</span>
+        <span class="meta">${fmtSize(j.file.size)} in${j.result ? " → " + esc(j.result.meta) + " out" : ""}</span>
+        ${notes.map((n) => `<span class="note">${esc(n)}</span>`).join("")}
+        <span class="actions">
+          ${j.status === "done" ? `<button class="btn primary" data-act="save" data-id="${j.id}">Save ${outExt} file</button>` : ""}
+          ${j.status !== "busy" ? `<button class="btn" data-act="redo" data-id="${j.id}">Convert again</button>` : ""}
+          ${j.status !== "busy" ? `<button class="btn" data-act="remove" data-id="${j.id}">Remove</button>` : ""}
+        </span>
+      </li>`;
+    }).join("");
+  }
+
+  function renderPreview() {
+    const job = state.jobs[state.dir].find((j) => j.id === state.selected[state.dir]);
+    const p = $("preview");
+    $("preview-name").textContent = job ? (job.result ? job.result.filename : job.file.name) : "";
+    if (!job) { p.innerHTML = `<p class="page-label">Pick a file to see its converted content.</p>`; return; }
+    if (job.status === "error") { p.innerHTML = `<p class="page-label">${esc(job.error)}</p>`; return; }
+    if (!job.result) { p.innerHTML = `<p class="page-label">${esc(job.progress)}…</p>`; return; }
+    if (p.dataset.job !== String(job.id) || p.dataset.v !== String(job.version)) {
+      p.innerHTML = job.result.previewHTML;
+      p.dataset.job = String(job.id); p.dataset.v = String(job.version);
+    }
+  }
+
+  $("queue").addEventListener("click", (ev) => {
+    const btn = ev.target.closest("button[data-act]");
+    const row = ev.target.closest(".row");
+    if (!row) return;
+    const id = Number(row.dataset.id);
+    const list = state.jobs[state.dir];
+    const job = list.find((j) => j.id === id);
+    if (!job) return;
+    if (btn) {
+      if (btn.dataset.act === "save") return saveFile(job.result.filename, job.result.blob);
+      if (btn.dataset.act === "remove") {
+        state.jobs[state.dir] = list.filter((j) => j !== job);
+        if (state.selected[state.dir] === id) state.selected[state.dir] = state.jobs[state.dir][0] ? state.jobs[state.dir][0].id : null;
+        $("preview").dataset.job = ""; return render();
+      }
+      if (btn.dataset.act === "redo") { job.result = null; job.version = (job.version || 0) + 1; job.status = "queued"; job.progress = "Waiting"; state.selected[state.dir] = id; enqueue(job); return render(); }
+    }
+    state.selected[state.dir] = id; render();
+  });
+  $("queue").addEventListener("keydown", (ev) => {
+    const row = ev.target.closest(".row");
+    if (row && ev.target === row && (ev.key === "Enter" || ev.key === " ")) { ev.preventDefault(); row.click(); }
+  });
+
+  for (const b of document.querySelectorAll(".switch button")) b.addEventListener("click", () => setDir(b.dataset.dir));
+  const drop = $("drop"), input = $("file-input");
+  input.addEventListener("change", () => { if (input.files.length) addFiles(input.files); input.value = ""; });
+  drop.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); input.click(); } });
+  for (const t of ["dragenter", "dragover"]) drop.addEventListener(t, (ev) => { ev.preventDefault(); drop.classList.add("over"); });
+  for (const t of ["dragleave", "drop"]) drop.addEventListener(t, (ev) => { ev.preventDefault(); drop.classList.remove("over"); });
+  drop.addEventListener("drop", (ev) => { if (ev.dataTransfer && ev.dataTransfer.files.length) addFiles(ev.dataTransfer.files); });
+  // Dropping a file anywhere else on the page should not navigate away.
+  window.addEventListener("dragover", (ev) => ev.preventDefault());
+  window.addEventListener("drop", (ev) => { ev.preventDefault(); if (!drop.contains(ev.target) && ev.dataTransfer && ev.dataTransfer.files.length) addFiles(ev.dataTransfer.files); });
+
+  // ---------- example files so the page opens showing real output ----------
+  async function makeSampleDocx() {
+    const D = window.docx;
+    const doc = new D.Document({
+      sections: [{ children: [
+        new D.Paragraph({ heading: D.HeadingLevel.HEADING_1, children: [new D.TextRun("Quarterly Office Move Plan")] }),
+        new D.Paragraph({ children: [
+          new D.TextRun("This example memo was generated in your browser to show the converter at work. "),
+          new D.TextRun({ text: "Drop your own files above", bold: true }),
+          new D.TextRun(" and they will appear in this list. "),
+          new D.TextRun({ text: "Nothing is uploaded.", italics: true }),
+        ] }),
+        new D.Paragraph({ heading: D.HeadingLevel.HEADING_2, children: [new D.TextRun("Timeline")] }),
+        new D.Paragraph({ text: "Pack shared equipment by Friday, 14 November.", bullet: { level: 0 } }),
+        new D.Paragraph({ text: "Movers arrive Saturday at 08:00.", bullet: { level: 0 } }),
+        new D.Paragraph({ text: "New desks are assigned on Monday morning.", bullet: { level: 0 } }),
+        new D.Paragraph({ heading: D.HeadingLevel.HEADING_2, children: [new D.TextRun("Room assignments")] }),
+        new D.Table({ rows: [
+          ["Team", "Room", "Seats"], ["Design", "3.14", "8"], ["Engineering", "3.20", "14"], ["Finance", "2.05", "5"],
+        ].map((r, i) => new D.TableRow({ children: r.map((c) => new D.TableCell({ width: { size: 3000, type: D.WidthType.DXA }, children: [new D.Paragraph({ children: [new D.TextRun({ text: c, bold: i === 0 })] })] })) })) }),
+        new D.Paragraph({ text: "" }),
+        new D.Paragraph({ children: [new D.TextRun("Questions go to the facilities desk on the second floor.")] }),
+      ] }],
+    });
+    return new File([await D.Packer.toBlob(doc)], "office-move-memo.docx", { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+  }
+
+  async function loadExamples() {
+    try {
+      const sample = await makeSampleDocx();
+      addFiles([sample], "word2pdf", true);
+      await chain;
+      const pdfJob = state.jobs.word2pdf.find((j) => j.example && j.result);
+      if (pdfJob && !state.jobs.pdf2word.length) {
+        addFiles([new File([pdfJob.result.blob], "office-move-memo.pdf", { type: "application/pdf" })], "pdf2word", true);
+      }
+    } catch (e) { console.error(e); }
+  }
+
+  let startDir = "word2pdf";
+  try { const s = localStorage.getItem("wpc-dir"); if (s && DIR[s]) startDir = s; } catch (e) {}
+  if (/^#?pdf2word$/.test(location.hash)) startDir = "pdf2word";
+  setDir(startDir);
+  loadExamples();
+})();
+</script>
+<!-- page:end -->
+</body>
+</html>
