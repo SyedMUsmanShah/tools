@@ -1,5 +1,16 @@
 # tools
 
+## Calculator: `calculator.html`
+
+A simple calculator that runs in the browser. Open the file, no install or internet needed.
+
+- Add, subtract, multiply, divide, with correct order of operations and brackets
+- Percent, change sign (±), square (x²), square root (√x), reciprocal (1/x)
+- Memory keys (MC, MR, M+, M−), backspace, clear
+- Shows a live preview of the answer as you type, and keeps a history of past results (click one to reuse it)
+- Keyboard: `0–9 . + - * / ( ) %`, `Enter` or `=` for the answer, `Backspace`, `Esc` to clear
+- Works on phones and follows your system's light/dark mode
+
 ## Word ⇄ PDF Converter
 
 Two ways to convert Word documents to PDF and PDFs back to Word.
