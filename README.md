@@ -11,6 +11,19 @@ A simple calculator that runs in the browser. Open the file, no install or inter
 - Keyboard: `0–9 . + - * / ( ) %`, `Enter` or `=` for the answer, `Backspace`, `Esc` to clear
 - Works on phones and follows your system's light/dark mode
 
+## Currency Converter: `currency-converter.html`
+
+Open the file in any browser to convert between about 160 currencies using the latest daily exchange rates.
+
+- Type an amount (commas are fine), pick the From and To currencies, and the result updates as you type
+- Swap button, plus a list showing the amount in other popular currencies (click one to convert to it)
+- Shows the rate both ways (1 USD = … PKR and 1 PKR = … USD) and when the rates were last updated
+- Rates come from free public sources with no API key: [ExchangeRate-API](https://www.exchangerate-api.com/docs/free), falling back to [Frankfurter](https://frankfurter.dev/) and [fawazahmed0/currency-api](https://github.com/fawazahmed0/exchange-api) if one is down
+- Needs internet to fetch rates. It saves the last rates it fetched, so it still works offline with those
+- Remembers your last currencies and amount
+
+Rates are mid-market reference rates. Banks and exchange services add their own margin.
+
 ## Word ⇄ PDF Converter
 
 Two ways to convert Word documents to PDF and PDFs back to Word.
