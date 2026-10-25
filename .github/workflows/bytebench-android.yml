@@ -45,17 +45,11 @@ jobs:
         with:
           name: Bytebench-${{ env.VERSION_NAME }}
           path: bytebench-app/out/*.apk
+          retention-days: 7
 
-      - name: Publish to the "Bytebench app" release
+      # The APK is kept private: remove the public release this workflow used to publish.
+      - name: Remove the old public release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG=bytebench-app-latest
-          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --prerelease --target "$GITHUB_SHA" \
-            --title "Bytebench Android app" \
-            --notes "Latest Bytebench APK, built automatically from the bytebench-app folder. On your phone: download the .apk below, open it and allow installing from this source."
-          gh release upload "$TAG" out/*.apk --clobber
-          # keep only the newest APK on the release
-          for a in $(gh release view "$TAG" --json assets -q '.assets[].name'); do
-            [ "$a" = "Bytebench-${VERSION_NAME}.apk" ] || gh release delete-asset "$TAG" "$a" -y
-          done
+          gh release delete bytebench-app-latest --yes --cleanup-tag 2>/dev/null || echo "No public release to remove."
