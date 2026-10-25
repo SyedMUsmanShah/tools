@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: bytebench-android-${{ github.ref }}
@@ -36,18 +37,15 @@ jobs:
       - name: Build APK
         run: ./gradlew --no-daemon --stacktrace assembleRelease
 
-      - name: Rename APK
+      # The APK is kept private: nothing is uploaded, and copies from earlier runs are deleted.
+      - name: Delete stored APK copies
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p out
-          cp app/build/outputs/apk/release/app-release.apk "out/Bytebench-${VERSION_NAME}.apk"
+          for id in $(gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" --paginate -q '.artifacts[] | select(.name | startswith("Bytebench-")) | .id'); do
+            gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/artifacts/$id" && echo "Deleted artifact $id"
+          done
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Bytebench-${{ env.VERSION_NAME }}
-          path: bytebench-app/out/*.apk
-          retention-days: 7
-
-      # The APK is kept private: remove the public release this workflow used to publish.
       - name: Remove the old public release
         env:
           GH_TOKEN: ${{ github.token }}

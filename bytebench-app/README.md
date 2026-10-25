@@ -6,10 +6,9 @@ in the website's three themes (Porcelain, Ink & Brass, Emerald).
 
 ## Get the APK
 
-Every push that changes this folder builds a signed APK on GitHub Actions. It is **not**
-published as a release: open **Actions → Bytebench Android APK → the latest run** and
-download the `Bytebench-…` artifact (kept for 7 days). It downloads as a ZIP with the
-`.apk` inside.
+Every push that changes this folder builds the app on GitHub Actions to check that it
+compiles. The APK itself is kept private: it isn't published or stored on GitHub.
+Build it on your own computer (see “Build it yourself” below), or ask for a copy.
 
 Updates install over the previous version because every build is signed with the same key
 (`keystore/debug.keystore`). That key is fine for sharing the APK yourself; for Google Play,
