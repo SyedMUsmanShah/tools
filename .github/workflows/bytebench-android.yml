@@ -1,0 +1,61 @@
+name: Bytebench Android APK
+
+on:
+  push:
+    paths:
+      - "bytebench-app/**"
+      - ".github/workflows/bytebench-android.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bytebench-android-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bytebench-app
+    env:
+      VERSION_CODE: ${{ github.run_number }}
+      VERSION_NAME: 1.0.${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build APK
+        run: ./gradlew --no-daemon --stacktrace assembleRelease
+
+      - name: Rename APK
+        run: |
+          mkdir -p out
+          cp app/build/outputs/apk/release/app-release.apk "out/Bytebench-${VERSION_NAME}.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Bytebench-${{ env.VERSION_NAME }}
+          path: bytebench-app/out/*.apk
+
+      - name: Publish to the "Bytebench app" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=bytebench-app-latest
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --prerelease --target "$GITHUB_SHA" \
+            --title "Bytebench Android app" \
+            --notes "Latest Bytebench APK, built automatically from the bytebench-app folder. On your phone: download the .apk below, open it and allow installing from this source."
+          gh release upload "$TAG" out/*.apk --clobber
+          # keep only the newest APK on the release
+          for a in $(gh release view "$TAG" --json assets -q '.assets[].name'); do
+            [ "$a" = "Bytebench-${VERSION_NAME}.apk" ] || gh release delete-asset "$TAG" "$a" -y
+          done
