@@ -1,0 +1,1291 @@
+{
+    "version": 1,
+    "generatedAt": "2026-10-25T21:18:17+00:00",
+    "site": {
+        "name": "Bytebench",
+        "tagline": "Websites, support and tools for growing businesses.",
+        "description": "Website development, customer and business support, sales operations and custom tools by Syed Muhammad Usman Shah — plus a blog on business, tech, news and life.",
+        "owner": {
+            "name": "Syed Muhammad Usman Shah",
+            "shortName": "Usman",
+            "role": "Web developer, business support specialist and sales operations manager",
+            "location": "Lahore, Pakistan",
+            "email": "usman4588408@gmail.com",
+            "whatsapp": "923498601467",
+            "whatsappDisplay": "+92 349 8601467",
+            "whatsappMessage": "Hi Usman, I found you through your website."
+        },
+        "socials": [
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/syedmusmanshah",
+                "icon": "fa-brands fa-linkedin-in"
+            },
+            {
+                "name": "Instagram",
+                "url": "https://www.instagram.com/syed_m_usman_shah",
+                "icon": "fa-brands fa-instagram"
+            },
+            {
+                "name": "Facebook",
+                "url": "https://www.facebook.com/share/1DJRZVK3Xr/",
+                "icon": "fa-brands fa-facebook-f"
+            }
+        ],
+        "intro": "I’m Usman — I build websites, look after customers and keep businesses running smoothly. By day I manage US retail partners across 13 stores; since 2022 I’ve also built websites and web apps for clients around the world. Whether you need a new site, reliable support for your customers, help with the day-to-day running of your business, or a tool that saves your team time, I can help.",
+        "experience": [
+            {
+                "role": "Virtual Development Manager & Team Lead",
+                "org": "Elevate Business Solutions (EBS)",
+                "period": "Apr 2024 – present",
+                "points": [
+                    "Primary contact for two US dealer organizations running 13 retail stores.",
+                    "Build sales strategies and track daily, weekly and monthly KPIs to find gaps and growth.",
+                    "Monitor store performance and customer interactions through reports and in-store cameras.",
+                    "Coach frontline staff on sales, service and communication; lead a remote team of 3."
+                ]
+            },
+            {
+                "role": "Freelance Web Developer",
+                "org": "Immensity Solutions BPO LLC",
+                "period": "Oct 2026 – present",
+                "points": [
+                    "Web development work for business clients."
+                ]
+            },
+            {
+                "role": "Full-Stack Web Developer",
+                "org": "Fiverr & Upwork clients",
+                "period": "2022 – present",
+                "points": [
+                    "Responsive sites and web apps in PHP, Laravel, MySQL, HTML, CSS and jQuery.",
+                    "Authentication systems, admin dashboards and CRUD management apps.",
+                    "Owned projects end to end: requirements, build, testing and deployment."
+                ]
+            },
+            {
+                "role": "Founder & Content Operations",
+                "org": "Independent YouTube projects",
+                "period": "Oct 2025 – Apr 2026",
+                "points": [
+                    "Planned and produced educational channel content and scripts."
+                ]
+            }
+        ],
+        "skills": [
+            {
+                "group": "Web development",
+                "items": [
+                    "PHP",
+                    "Laravel",
+                    "MySQL",
+                    "JavaScript & jQuery",
+                    "HTML & CSS",
+                    "Admin dashboards"
+                ]
+            },
+            {
+                "group": "Support",
+                "items": [
+                    "Customer support",
+                    "Email & chat",
+                    "Account management",
+                    "Reporting",
+                    "Virtual assistance",
+                    "Follow-ups"
+                ]
+            },
+            {
+                "group": "Business",
+                "items": [
+                    "Sales strategy",
+                    "KPI tracking",
+                    "Team leadership",
+                    "Coaching",
+                    "Customer experience"
+                ]
+            }
+        ],
+        "education": "BS Computer Science, Virtual University of Pakistan (2023 – 2027)",
+        "stats": [
+            {
+                "label": "Years of experience",
+                "since": "2022-01",
+                "value": null,
+                "count": null,
+                "suffix": ""
+            },
+            {
+                "label": "Years supporting US businesses",
+                "since": "2024-04",
+                "value": null,
+                "count": null,
+                "suffix": ""
+            },
+            {
+                "label": "Retail stores supported",
+                "since": null,
+                "value": 13,
+                "count": null,
+                "suffix": ""
+            },
+            {
+                "label": "Free online tools",
+                "since": null,
+                "value": null,
+                "count": "free_tools",
+                "suffix": ""
+            }
+        ],
+        "steps": [
+            {
+                "icon": "fa-solid fa-comments",
+                "title": "Tell me what you need",
+                "text": "Send a message or WhatsApp. A short chat is enough to understand your goals."
+            },
+            {
+                "icon": "fa-solid fa-file-signature",
+                "title": "Get a clear quote",
+                "text": "Scope, timeline and price in writing, so there are no surprises."
+            },
+            {
+                "icon": "fa-solid fa-screwdriver-wrench",
+                "title": "I get it done",
+                "text": "You see progress as I build, support or set things up — and can change course anytime."
+            },
+            {
+                "icon": "fa-solid fa-rocket",
+                "title": "Launch and keep going",
+                "text": "Your project goes live, and I’m a message away for updates and ongoing help."
+            }
+        ],
+        "booking": {
+            "timezone": "Asia/Karachi",
+            "days": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "from": "17:00",
+            "to": "22:00",
+            "minutes": 15,
+            "every_minutes": 30,
+            "days_ahead": 14,
+            "min_notice_hours": 6
+        },
+        "authorBio": "Usman is a web developer and business support specialist from Lahore. He builds websites and tools, supports businesses in the US and beyond, and writes about business, tech, news and whatever he’s learning.",
+        "blogCategories": [
+            "News",
+            "Personal",
+            "Sales Guides",
+            "Web Development",
+            "Business",
+            "Tech",
+            "Tools",
+            "Case Studies"
+        ],
+        "legalUpdated": "2026-10-25",
+        "defaultSkin": "ink"
+    },
+    "toolCategories": [
+        {
+            "slug": "text",
+            "name": "Text"
+        },
+        {
+            "slug": "calculators",
+            "name": "Calculators"
+        },
+        {
+            "slug": "money",
+            "name": "Business & money"
+        },
+        {
+            "slug": "image",
+            "name": "Image & PDF"
+        },
+        {
+            "slug": "generators",
+            "name": "Generators"
+        },
+        {
+            "slug": "social",
+            "name": "Social & SEO"
+        }
+    ],
+    "featuredTools": [
+        "word-counter",
+        "image-compressor",
+        "qr-code-generator",
+        "loan-emi-calculator",
+        "invoice-generator",
+        "pdf-to-jpg",
+        "password-generator",
+        "age-calculator"
+    ],
+    "tools": [
+        {
+            "slug": "word-counter",
+            "name": "Word Counter",
+            "category": "text",
+            "icon": "fa-solid fa-file-word",
+            "summary": "Count words, characters, sentences and paragraphs as you type, with reading time, speaking time and your most-used keywords.",
+            "steps": [
+                "Type or paste your text into the box.",
+                "Watch the counts update instantly as you write.",
+                "Check the keyword list to spot words you repeat too often."
+            ],
+            "about": "Whether you are writing an essay with a word limit, a blog post that should be long enough to rank, or a script that has to fit a two-minute video, knowing your exact length saves time. Reading time assumes about 230 words per minute and speaking time about 140, which are typical averages for adults.",
+            "faqs": [
+                {
+                    "q": "How are words counted?",
+                    "a": "Any group of letters or numbers separated by spaces or punctuation counts as one word. Hyphenated words like “well-known” count as one."
+                },
+                {
+                    "q": "Is my text saved anywhere?",
+                    "a": "No. Everything is counted inside your browser. Your text is never sent to a server."
+                },
+                {
+                    "q": "How long should a blog post be?",
+                    "a": "There is no fixed rule, but posts that fully answer a question are usually 800–2,000 words. Write until the topic is covered, then stop."
+                }
+            ],
+            "pitch": {
+                "service": "business-support",
+                "title": "Need writing or admin work done for you?",
+                "text": "I help businesses with documents, data entry, email and everyday admin — so you can focus on running things."
+            },
+            "topics": [
+                "word count",
+                "writing",
+                "blog post",
+                "essay",
+                "content"
+            ]
+        },
+        {
+            "slug": "character-counter",
+            "name": "Character Counter",
+            "category": "text",
+            "icon": "fa-solid fa-text-width",
+            "summary": "Count characters with and without spaces, and see instantly whether your text fits limits for X (Twitter), Instagram, SMS, meta descriptions and more.",
+            "steps": [
+                "Paste or type your text.",
+                "See the total characters, with and without spaces.",
+                "Check the platform bars to see how much room you have left on each."
+            ],
+            "about": "Most platforms cut off text that runs too long: a post on X allows 280 characters, an Instagram caption 2,200, a single SMS 160, and Google usually shows around 155–160 characters of a meta description. This counter shows all of these at once so you can write to fit before you publish.",
+            "faqs": [
+                {
+                    "q": "Do spaces count as characters?",
+                    "a": "On almost every platform, yes. That’s why the main number includes spaces. The “without spaces” figure is useful for some school and translation work."
+                },
+                {
+                    "q": "Do emojis count as one character?",
+                    "a": "This counter counts each emoji as one character, the way you see it. Some platforms, like X, count most emojis as two, so leave a little room there."
+                },
+                {
+                    "q": "Why does my SMS split into two messages?",
+                    "a": "A standard SMS holds 160 characters. Longer messages are split, and using emojis or some special characters lowers the limit to 70."
+                }
+            ],
+            "pitch": {
+                "service": "business-support",
+                "title": "Need writing or admin work done for you?",
+                "text": "I help businesses with documents, data entry, email and everyday admin — so you can focus on running things."
+            },
+            "topics": [
+                "character",
+                "twitter",
+                "meta description",
+                "sms",
+                "caption"
+            ]
+        },
+        {
+            "slug": "case-converter",
+            "name": "Case Converter",
+            "category": "text",
+            "icon": "fa-solid fa-font",
+            "summary": "Change text to UPPERCASE, lowercase, Title Case, Sentence case and more in one click, then copy the result.",
+            "steps": [
+                "Paste your text into the box.",
+                "Click the case you want — the text changes immediately.",
+                "Press Copy to use it anywhere."
+            ],
+            "about": "Fix text that was typed with Caps Lock on, turn a sentence into a proper headline, or prepare variable names for code. Title Case keeps small words like “and”, “of” and “the” in lowercase unless they start the title, which is how most style guides write headlines.",
+            "faqs": [
+                {
+                    "q": "What is the difference between Title Case and Capitalized Case?",
+                    "a": "Capitalized Case makes the first letter of every word uppercase. Title Case leaves short words such as “a”, “in” and “of” lowercase, which reads more naturally in headlines."
+                },
+                {
+                    "q": "Can I undo a change?",
+                    "a": "Yes — press Undo to return to your previous text."
+                },
+                {
+                    "q": "Does it work with other languages?",
+                    "a": "Upper and lower case work for any language that has them, such as English, French or Turkish. Languages without cases, like Urdu or Arabic, are left as they are."
+                }
+            ],
+            "pitch": {
+                "service": "business-support",
+                "title": "Need writing or admin work done for you?",
+                "text": "I help businesses with documents, data entry, email and everyday admin — so you can focus on running things."
+            },
+            "topics": [
+                "title case",
+                "capitali",
+                "formatting",
+                "headline"
+            ]
+        },
+        {
+            "slug": "age-calculator",
+            "name": "Age Calculator",
+            "category": "calculators",
+            "icon": "fa-solid fa-cake-candles",
+            "summary": "Find your exact age in years, months and days, the total days you have lived, and how long until your next birthday.",
+            "steps": [
+                "Choose your date of birth.",
+                "Leave “age on” as today, or pick another date to check age on that day.",
+                "Read your exact age, totals and the countdown to your next birthday."
+            ],
+            "about": "Exact age is needed for job applications, exams, visas and admissions that set minimum or maximum ages on a certain date. This calculator counts full calendar months and days, so it handles leap years and months of different lengths correctly.",
+            "faqs": [
+                {
+                    "q": "How is age calculated?",
+                    "a": "It counts complete years first, then complete months, then the remaining days between the two dates."
+                },
+                {
+                    "q": "What if I was born on 29 February?",
+                    "a": "In years without a 29 February, your birthday is treated as 1 March for the countdown."
+                },
+                {
+                    "q": "Can I calculate age on a future date?",
+                    "a": "Yes. Change the “age on” date to any date, for example the closing date of an application."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Need a calculator built around your business?",
+                "text": "I build simple custom tools that use your own formulas and numbers — so your team stops working it out by hand."
+            },
+            "topics": [
+                "age",
+                "birthday",
+                "date"
+            ]
+        },
+        {
+            "slug": "percentage-calculator",
+            "name": "Percentage Calculator",
+            "category": "calculators",
+            "icon": "fa-solid fa-percent",
+            "summary": "Work out X% of a number, what percent one number is of another, and the percentage increase or decrease between two values.",
+            "steps": [
+                "Pick the type of question you have.",
+                "Enter the two numbers.",
+                "Read the answer and the formula used to get it."
+            ],
+            "about": "Percentages come up everywhere: discounts, exam marks, salary raises, tax and growth figures. The three calculators here cover the questions people ask most, and each one shows the working so you can check it or use it again later.",
+            "faqs": [
+                {
+                    "q": "How do I calculate a percentage of a number?",
+                    "a": "Multiply the number by the percentage and divide by 100. For example, 15% of 2,000 is 2,000 × 15 ÷ 100 = 300."
+                },
+                {
+                    "q": "How is percentage change calculated?",
+                    "a": "Subtract the old value from the new value, divide by the old value, then multiply by 100. A positive result is an increase; a negative result is a decrease."
+                },
+                {
+                    "q": "Why is a 50% drop not undone by a 50% rise?",
+                    "a": "Because each percentage is taken from a different starting value. 100 down 50% is 50; 50 up 50% is only 75."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Need a calculator built around your business?",
+                "text": "I build simple custom tools that use your own formulas and numbers — so your team stops working it out by hand."
+            },
+            "topics": [
+                "percent",
+                "growth",
+                "conversion rate",
+                "margin"
+            ]
+        },
+        {
+            "slug": "bmi-calculator",
+            "name": "BMI Calculator",
+            "category": "calculators",
+            "icon": "fa-solid fa-weight-scale",
+            "summary": "Calculate your Body Mass Index in metric or imperial units and see which standard BMI range it falls into.",
+            "steps": [
+                "Choose metric (kg, cm) or imperial (lb, ft/in).",
+                "Enter your weight and height.",
+                "See your BMI, its range, and the healthy weight range for your height."
+            ],
+            "about": "BMI is weight in kilograms divided by height in metres squared. The World Health Organization groups adult BMI as underweight (below 18.5), healthy (18.5–24.9), overweight (25–29.9) and obese (30 or more). It is a quick screening number only — it does not measure body fat directly and does not suit children, pregnant women or very muscular people. For advice about your health, talk to a doctor.",
+            "faqs": [
+                {
+                    "q": "Is BMI accurate?",
+                    "a": "It is a useful rough guide for most adults, but it cannot tell muscle from fat, so athletes may show a high BMI while being healthy."
+                },
+                {
+                    "q": "Can children use this calculator?",
+                    "a": "No. Children and teenagers are measured with age- and sex-specific BMI charts, which this calculator does not use."
+                },
+                {
+                    "q": "Are the ranges the same for everyone?",
+                    "a": "These are the WHO ranges for adults. Some health bodies suggest lower cut-offs for people of South Asian descent, so ask a doctor what applies to you."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Need a calculator built around your business?",
+                "text": "I build simple custom tools that use your own formulas and numbers — so your team stops working it out by hand."
+            },
+            "topics": [
+                "bmi",
+                "health",
+                "fitness",
+                "weight"
+            ]
+        },
+        {
+            "slug": "unit-converter",
+            "name": "Unit Converter",
+            "category": "calculators",
+            "icon": "fa-solid fa-ruler-combined",
+            "summary": "Convert length, weight, temperature, area, volume, speed and data size between metric and imperial units instantly.",
+            "steps": [
+                "Choose what you are converting, like length or weight.",
+                "Type a value and pick the “from” unit.",
+                "See it converted to every other unit at once."
+            ],
+            "about": "Convert between kilometres and miles, kilograms and pounds, Celsius and Fahrenheit, square feet and marla, litres and gallons, and more. Data sizes are shown in both decimal (1 MB = 1,000 KB) and the binary units computers often use (1 MiB = 1,024 KiB).",
+            "faqs": [
+                {
+                    "q": "How big is a marla?",
+                    "a": "Marla sizes differ by area. This converter uses 1 marla = 272.25 sq ft (the traditional standard). Some housing societies use 225 or 250 sq ft, so check the size your seller is using."
+                },
+                {
+                    "q": "Why are there two kinds of gallons?",
+                    "a": "A US gallon is about 3.785 litres and an imperial (UK) gallon is about 4.546 litres. Both are listed."
+                },
+                {
+                    "q": "Why does my 1 TB drive show less space?",
+                    "a": "Drive makers use decimal units (1 TB = 1,000 GB), while many computers show binary units (1 TiB = 1,024 GiB), so 1 TB appears as about 931 GiB."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Need a calculator built around your business?",
+                "text": "I build simple custom tools that use your own formulas and numbers — so your team stops working it out by hand."
+            },
+            "topics": [
+                "convert",
+                "unit",
+                "measurement"
+            ]
+        },
+        {
+            "slug": "time-zone-converter",
+            "name": "Time Zone Converter",
+            "category": "calculators",
+            "icon": "fa-solid fa-earth-americas",
+            "summary": "Convert a time between any time zones — like Pakistan, New York, London and Dubai — with daylight saving handled automatically.",
+            "steps": [
+                "Set the date and time, and the time zone it is in.",
+                "Add the cities or zones you want to compare.",
+                "See the matching local time everywhere, including the day."
+            ],
+            "about": "Planning a call with a client in the US or a meeting across offices is easy to get wrong, especially when daylight saving time starts or ends. This converter uses your browser’s built-in time zone database, so summer and winter time changes are applied for the date you choose.",
+            "faqs": [
+                {
+                    "q": "Does it handle daylight saving time?",
+                    "a": "Yes. The offset is worked out for the exact date you enter, so times stay correct when clocks change."
+                },
+                {
+                    "q": "What time zone is Pakistan in?",
+                    "a": "Pakistan Standard Time is UTC+5 all year. It does not currently use daylight saving time."
+                },
+                {
+                    "q": "Why do US times shift by an hour during the year?",
+                    "a": "Most of the US moves its clocks forward in spring and back in autumn, so the gap with Pakistan changes between, for example, 9 and 10 hours for New York."
+                }
+            ],
+            "pitch": {
+                "service": "customer-support",
+                "title": "Need support for customers in another time zone?",
+                "text": "I handle email, chat and phone support for US businesses from Pakistan — covering hours your team can’t."
+            },
+            "topics": [
+                "time zone",
+                "timezone",
+                "remote",
+                "us clients",
+                "meeting",
+                "virtual assistant"
+            ]
+        },
+        {
+            "slug": "profit-margin-calculator",
+            "name": "Profit Margin Calculator",
+            "category": "money",
+            "icon": "fa-solid fa-chart-line",
+            "summary": "Calculate profit, margin and markup from cost and selling price — or find the selling price you need for a target margin.",
+            "steps": [
+                "Choose whether you know the selling price or a target margin.",
+                "Enter your cost and price (or margin).",
+                "Read the profit, margin and markup."
+            ],
+            "about": "Margin and markup are often confused. Margin is profit as a share of the selling price; markup is profit as a share of the cost. Buying at 800 and selling at 1,000 gives a 20% margin but a 25% markup. Pricing with the right one protects your profit.",
+            "faqs": [
+                {
+                    "q": "What is a good profit margin?",
+                    "a": "It depends on the industry. Retail and mobile phone sales often run on thin margins, while services and digital products can have much higher ones."
+                },
+                {
+                    "q": "How do I price for a 30% margin?",
+                    "a": "Divide your cost by (1 − 0.30). A cost of 700 needs a price of 1,000 for a 30% margin. Use the “target margin” mode to do this instantly."
+                },
+                {
+                    "q": "Should I include delivery and fees in cost?",
+                    "a": "Yes. Include every cost of making one sale — product, delivery, payment fees and packaging — to see your true margin."
+                }
+            ],
+            "pitch": {
+                "service": "sales-operations",
+                "title": "Want your sales numbers tracked for you?",
+                "text": "I set up daily KPI reports and dashboards for stores and sales teams, so you always know where you stand."
+            },
+            "topics": [
+                "profit",
+                "margin",
+                "pricing",
+                "markup",
+                "sales",
+                "kpi",
+                "store"
+            ]
+        },
+        {
+            "slug": "loan-emi-calculator",
+            "name": "Loan / EMI Calculator",
+            "category": "money",
+            "icon": "fa-solid fa-building-columns",
+            "summary": "Calculate the monthly installment (EMI) for a car, home or personal loan, with total interest and a month-by-month repayment schedule.",
+            "steps": [
+                "Enter the loan amount, yearly interest rate and loan period.",
+                "See your monthly installment, total interest and total payment.",
+                "Open the schedule to see how each payment splits between interest and principal."
+            ],
+            "about": "EMI stands for Equated Monthly Installment — the same payment every month until the loan is paid off. Early payments are mostly interest; later payments are mostly principal. Banks may add processing fees, insurance or taxes, so treat this as an estimate and confirm the final figures with your lender.",
+            "faqs": [
+                {
+                    "q": "How is EMI calculated?",
+                    "a": "EMI = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1), where P is the loan amount, r is the monthly interest rate and n is the number of months."
+                },
+                {
+                    "q": "Does this work for Islamic financing?",
+                    "a": "Islamic car and home financing uses rental or profit rates instead of interest, but the monthly figure is often worked out the same way. Ask your bank for its exact method."
+                },
+                {
+                    "q": "How can I lower my EMI?",
+                    "a": "A larger down payment, a lower rate or a longer period all reduce the EMI — though a longer period usually means paying more in total."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Need a calculator like this on your website?",
+                "text": "I build custom calculators and quote tools for websites — branded, fast and built around your numbers."
+            },
+            "topics": [
+                "loan",
+                "emi",
+                "finance",
+                "interest",
+                "mortgage"
+            ]
+        },
+        {
+            "slug": "discount-and-sales-tax-calculator",
+            "name": "Discount & Sales Tax Calculator",
+            "category": "money",
+            "icon": "fa-solid fa-tags",
+            "summary": "Find the sale price after a discount, add sales tax (GST) to a price, or remove tax from a tax-inclusive price.",
+            "steps": [
+                "Pick discount, add tax or remove tax.",
+                "Enter the price and the percentage.",
+                "See the final price and exactly how much you save or pay in tax."
+            ],
+            "about": "Check what a “40% off” deal really costs, work out the price including GST before sending a quote, or find out how much tax is hidden in a price that already includes it. The tax rate starts at 18%, Pakistan’s standard sales tax rate at the time of writing — change it to whatever rate applies to you.",
+            "faqs": [
+                {
+                    "q": "How do I remove tax from a price?",
+                    "a": "Divide the price by 1 plus the tax rate. A price of 1,180 with 18% tax included is 1,180 ÷ 1.18 = 1,000 before tax."
+                },
+                {
+                    "q": "Are two discounts the same as adding them up?",
+                    "a": "No. 20% off and then another 10% off is 28% off in total, not 30%, because the second discount applies to the already-reduced price."
+                },
+                {
+                    "q": "Is the tax rate always 18%?",
+                    "a": "No — rates differ by country, province, product and service, and they change over time. Always enter the rate that applies to your sale."
+                }
+            ],
+            "pitch": {
+                "service": "sales-operations",
+                "title": "Want your sales numbers tracked for you?",
+                "text": "I set up daily KPI reports and dashboards for stores and sales teams, so you always know where you stand."
+            },
+            "topics": [
+                "discount",
+                "sales tax",
+                "price",
+                "retail",
+                "promotion"
+            ]
+        },
+        {
+            "slug": "invoice-generator",
+            "name": "Invoice Generator",
+            "category": "money",
+            "icon": "fa-solid fa-file-invoice",
+            "summary": "Create a clean, professional invoice in minutes — add your items, tax and discount, then download it as a PDF. Free, no sign-up.",
+            "steps": [
+                "Fill in your details, your client’s details and the invoice number and dates.",
+                "Add each item with its quantity and price; set tax or discount if needed.",
+                "Press Download PDF and send the invoice to your client."
+            ],
+            "about": "A clear invoice gets you paid faster. Add your business name, payment details and due date, and the totals are calculated for you. Your details are remembered in this browser for next time, but nothing is uploaded — the PDF is created on your own device.",
+            "faqs": [
+                {
+                    "q": "Is this invoice legally valid?",
+                    "a": "An invoice is a record of a sale. If you are registered for sales tax, your country may require extra details such as your tax number — add them in the notes field."
+                },
+                {
+                    "q": "Are my invoices saved?",
+                    "a": "Your own business details are remembered in this browser to save typing. Download each invoice as a PDF to keep a copy."
+                },
+                {
+                    "q": "Can I use a different currency?",
+                    "a": "Yes. Choose PKR, USD, GBP, EUR, AED or SAR, or type any currency symbol."
+                }
+            ],
+            "pitch": {
+                "service": "business-support",
+                "title": "Tired of making invoices by hand?",
+                "text": "I can take care of invoicing, follow-ups and bookkeeping prep for you — or set up a system that does it automatically."
+            },
+            "topics": [
+                "invoice",
+                "freelanc",
+                "billing",
+                "client",
+                "payment"
+            ]
+        },
+        {
+            "slug": "image-compressor",
+            "name": "Image Compressor",
+            "category": "image",
+            "icon": "fa-solid fa-file-zipper",
+            "summary": "Reduce JPG, PNG and WebP image file sizes in your browser. Compress several images at once and download them individually or as a ZIP.",
+            "steps": [
+                "Drop your images in, or click to choose them.",
+                "Adjust quality and the maximum width if you want smaller files.",
+                "Download each image, or all of them together as a ZIP."
+            ],
+            "about": "Smaller images make websites load faster, emails send quicker and uploads meet size limits. A quality of around 70–80% usually cuts file size by more than half with no visible difference. Your images never leave your device — they are compressed right here in the browser.",
+            "faqs": [
+                {
+                    "q": "Are my images uploaded?",
+                    "a": "No. Compression happens entirely in your browser, so your photos stay private."
+                },
+                {
+                    "q": "Which format should I choose?",
+                    "a": "JPG or WebP for photos, PNG for graphics with sharp edges or transparency. WebP is usually the smallest."
+                },
+                {
+                    "q": "Why did a PNG get bigger?",
+                    "a": "PNG is lossless, so some already-optimised PNGs can’t shrink further. Try saving as WebP or JPG instead."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that loads fast?",
+                "text": "I build clean, fast websites with properly sized images — so visitors stay and Google ranks you higher."
+            },
+            "topics": [
+                "image",
+                "page speed",
+                "website speed",
+                "compress",
+                "performance"
+            ]
+        },
+        {
+            "slug": "image-resizer",
+            "name": "Image Resizer",
+            "category": "image",
+            "icon": "fa-solid fa-up-right-and-down-left-from-center",
+            "summary": "Resize images to exact pixel dimensions or by percentage, with presets for Instagram, Facebook, YouTube and passport-size photos.",
+            "steps": [
+                "Add one or more images.",
+                "Enter a width and height, a percentage, or pick a preset.",
+                "Download the resized images."
+            ],
+            "about": "Social platforms, job portals and online forms often ask for images at a specific size. Keep the aspect ratio locked to avoid stretching, or choose “fit” to add padding so the whole picture stays visible. Everything is processed on your device.",
+            "faqs": [
+                {
+                    "q": "Will resizing reduce quality?",
+                    "a": "Making an image smaller keeps it sharp. Making it larger than the original can look soft, because new detail can’t be created."
+                },
+                {
+                    "q": "What does “keep aspect ratio” mean?",
+                    "a": "It keeps the width and height in the same proportion, so the image is not stretched or squashed."
+                },
+                {
+                    "q": "What size is best for Instagram?",
+                    "a": "A 1080 × 1350 portrait (4:5) shows largest in the feed. Square posts are 1080 × 1080."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that loads fast?",
+                "text": "I build clean, fast websites with properly sized images — so visitors stay and Google ranks you higher."
+            },
+            "topics": [
+                "image",
+                "resize",
+                "photo",
+                "social media"
+            ]
+        },
+        {
+            "slug": "jpg-to-png",
+            "name": "JPG to PNG Converter",
+            "category": "image",
+            "icon": "fa-solid fa-file-image",
+            "summary": "Convert JPG images to PNG — and PNG or WebP to JPG — in seconds, in your browser. Convert several files at once.",
+            "steps": [
+                "Add your images.",
+                "Choose the format to convert to.",
+                "Download each file, or all of them as a ZIP."
+            ],
+            "about": "PNG is best for logos, screenshots and graphics because it is lossless and supports transparency. JPG is better for photos because the files are much smaller. Converting a JPG to PNG won’t restore lost detail, but it stops further quality loss when you edit and save again.",
+            "faqs": [
+                {
+                    "q": "Will converting to PNG make my background transparent?",
+                    "a": "No. A JPG has no transparency to keep, so the background stays as it is. Use a background-removal tool first if you need transparency."
+                },
+                {
+                    "q": "Why is my PNG bigger than the JPG?",
+                    "a": "PNG stores every pixel without compression loss, so photos become larger. That’s normal."
+                },
+                {
+                    "q": "What happens to transparency when converting to JPG?",
+                    "a": "JPG can’t store transparency, so transparent areas are filled with white."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that loads fast?",
+                "text": "I build clean, fast websites with properly sized images — so visitors stay and Google ranks you higher."
+            },
+            "topics": [
+                "image",
+                "png",
+                "jpg",
+                "photo"
+            ]
+        },
+        {
+            "slug": "pdf-to-jpg",
+            "name": "PDF to JPG Converter",
+            "category": "image",
+            "icon": "fa-solid fa-file-pdf",
+            "summary": "Turn every page of a PDF into a high-quality JPG image. Choose the quality, then download single pages or all pages as a ZIP.",
+            "steps": [
+                "Choose a PDF file.",
+                "Pick the image quality — higher quality makes larger images.",
+                "Download the pages you need, or all of them as a ZIP."
+            ],
+            "about": "Useful for sharing a page on WhatsApp or social media, adding a document to a presentation, or uploading to forms that only accept images. The PDF is opened and converted inside your browser using the same engine Firefox uses, so private documents stay on your device.",
+            "faqs": [
+                {
+                    "q": "Is there a page limit?",
+                    "a": "No fixed limit, but very large PDFs take longer and use more memory. On phones, converting at standard quality is faster."
+                },
+                {
+                    "q": "Can it open password-protected PDFs?",
+                    "a": "Yes — you’ll be asked for the password, which is used only in your browser."
+                },
+                {
+                    "q": "Which quality should I pick?",
+                    "a": "Standard is fine for screens and WhatsApp. Choose high for printing or for reading small text."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that loads fast?",
+                "text": "I build clean, fast websites with properly sized images — so visitors stay and Google ranks you higher."
+            },
+            "topics": [
+                "pdf",
+                "document",
+                "report"
+            ]
+        },
+        {
+            "slug": "password-generator",
+            "name": "Password Generator",
+            "category": "generators",
+            "icon": "fa-solid fa-key",
+            "summary": "Generate strong, random passwords and memorable passphrases using your device’s secure random generator. Nothing is stored or sent.",
+            "steps": [
+                "Choose a length and which characters to include, or switch to passphrase.",
+                "Press Generate until you like one.",
+                "Copy it straight into your password manager."
+            ],
+            "about": "Strong passwords are long and random. A 16-character password using letters, numbers and symbols would take longer than a lifetime to guess. Passwords here are created with your browser’s cryptographic random generator and are never sent anywhere — and the best way to remember them is a password manager.",
+            "faqs": [
+                {
+                    "q": "Is it safe to generate passwords online?",
+                    "a": "Here, yes: the password is created on your device and never leaves it. You can even disconnect from the internet and it will still work."
+                },
+                {
+                    "q": "How long should a password be?",
+                    "a": "At least 12 characters, ideally 16 or more for important accounts like email and banking."
+                },
+                {
+                    "q": "What is a passphrase?",
+                    "a": "Several random words joined together, like “copper-river-lamp-seven”. They are long, strong and easier to type than random characters."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Doing the same task again and again?",
+                "text": "That’s usually a sign it can be automated. I build small tools and automations that save hours every week."
+            },
+            "topics": [
+                "password",
+                "security",
+                "account"
+            ]
+        },
+        {
+            "slug": "qr-code-generator",
+            "name": "QR Code Generator",
+            "category": "generators",
+            "icon": "fa-solid fa-qrcode",
+            "summary": "Create free QR codes for links, text, WhatsApp chats, Wi-Fi, email and phone numbers. Choose colours and size, then download as PNG or SVG.",
+            "steps": [
+                "Choose what the QR code is for: link, WhatsApp, Wi-Fi and so on.",
+                "Fill in the details and pick your colours and size.",
+                "Download as PNG for sharing or SVG for printing."
+            ],
+            "about": "QR codes made here are “static”: the information is stored inside the code itself, so they never expire and don’t depend on any website staying online. Put one on business cards, shop counters, menus or flyers. Always test a printed code with your phone camera before printing many copies.",
+            "faqs": [
+                {
+                    "q": "Do these QR codes expire?",
+                    "a": "No. The content is inside the code, so it works for as long as the link or details inside it are valid."
+                },
+                {
+                    "q": "Which format is best for printing?",
+                    "a": "SVG. It stays perfectly sharp at any size, from a business card to a banner."
+                },
+                {
+                    "q": "Why won’t my coloured QR code scan?",
+                    "a": "Scanners need strong contrast. Keep the code dark on a light background, and avoid light colours for the code itself."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Need QR codes or labels at scale?",
+                "text": "I build small tools that generate codes, labels and documents in bulk from a spreadsheet."
+            },
+            "topics": [
+                "qr",
+                "menu",
+                "flyer",
+                "marketing"
+            ]
+        },
+        {
+            "slug": "random-name-generator",
+            "name": "Random Name Generator",
+            "category": "generators",
+            "icon": "fa-solid fa-signature",
+            "summary": "Generate random English names, catchy usernames for social media and gaming, and business or brand name ideas from your own keyword.",
+            "steps": [
+                "Choose English names, usernames or business names.",
+                "Set the options — like gender, style or your keyword.",
+                "Press Generate, then copy the ones you like."
+            ],
+            "about": "Need a character name for a story, test data for a form, a fresh username or ideas for a new brand? Generate as many as you like. For business names, always check that the domain name and social handles are free and that no one else is already trading under the name.",
+            "faqs": [
+                {
+                    "q": "Are these names real people?",
+                    "a": "English names combine common first and last names at random, so they are not meant to describe any real person."
+                },
+                {
+                    "q": "Can I use a generated business name?",
+                    "a": "Yes, they are free to use — but search for the name and check trademark registers before you commit to it."
+                },
+                {
+                    "q": "How can I make a username unique?",
+                    "a": "Add a word that means something to you, use the number option, or swap one letter. Short and easy to spell is best."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Doing the same task again and again?",
+                "text": "That’s usually a sign it can be automated. I build small tools and automations that save hours every week."
+            },
+            "topics": [
+                "name",
+                "username",
+                "brand",
+                "business name"
+            ]
+        },
+        {
+            "slug": "lorem-ipsum-generator",
+            "name": "Lorem Ipsum Generator",
+            "category": "generators",
+            "icon": "fa-solid fa-paragraph",
+            "summary": "Generate placeholder text by paragraphs, sentences or words — plain or as HTML — for website mockups, designs and templates.",
+            "steps": [
+                "Choose paragraphs, sentences or words, and how many.",
+                "Tick “HTML” if you want paragraph tags included.",
+                "Copy the text into your design."
+            ],
+            "about": "Lorem ipsum is scrambled Latin that has been used as filler text since the 1500s. It lets you judge a layout without being distracted by real words. Remember to replace it with real content before your website goes live — search engines and visitors both notice placeholder text.",
+            "faqs": [
+                {
+                    "q": "What does lorem ipsum mean?",
+                    "a": "It comes from a passage by Cicero written in 45 BC, but the words are jumbled so they don’t form readable sentences."
+                },
+                {
+                    "q": "Why not just use real text?",
+                    "a": "Real text draws attention to its meaning. Placeholder text keeps the focus on fonts, spacing and layout."
+                },
+                {
+                    "q": "Does every paragraph start with “Lorem ipsum”?",
+                    "a": "Only the first one, if you leave that option ticked. The rest is randomised."
+                }
+            ],
+            "pitch": {
+                "service": "custom-tools-automation",
+                "title": "Doing the same task again and again?",
+                "text": "That’s usually a sign it can be automated. I build small tools and automations that save hours every week."
+            },
+            "topics": [
+                "lorem",
+                "design",
+                "mockup",
+                "web development",
+                "website"
+            ]
+        },
+        {
+            "slug": "youtube-title-generator",
+            "name": "YouTube Title Generator",
+            "category": "social",
+            "icon": "fa-brands fa-youtube",
+            "summary": "Get click-worthy YouTube title ideas for your topic in different styles — how-to, list, curiosity, beginner and more — with a length check for each.",
+            "steps": [
+                "Type your video topic and, optionally, who it is for.",
+                "Pick a style or leave it on “mixed”.",
+                "Copy the titles you like and adjust them to your voice."
+            ],
+            "about": "A good title tells viewers exactly what they will get and gives them a reason to click. Keep the most important words near the start, because titles are shortened on phones after about 60–70 characters. Titles are capped at 100 characters on YouTube.",
+            "faqs": [
+                {
+                    "q": "How long should a YouTube title be?",
+                    "a": "Aim for 50–70 characters so it isn’t cut off, and never more than YouTube’s 100-character limit."
+                },
+                {
+                    "q": "Should I use clickbait?",
+                    "a": "Make titles exciting, but always deliver what the title promises. Misleading titles lead to viewers leaving early, which hurts your channel."
+                },
+                {
+                    "q": "Should I put keywords in the title?",
+                    "a": "Yes — include the words people would search for, ideally near the beginning."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that shows up on Google?",
+                "text": "I build SEO-friendly websites with the basics done right — titles, descriptions, speed and mobile."
+            },
+            "topics": [
+                "youtube",
+                "video",
+                "title"
+            ]
+        },
+        {
+            "slug": "instagram-caption-generator",
+            "name": "Instagram Caption Generator",
+            "category": "social",
+            "icon": "fa-brands fa-instagram",
+            "summary": "Generate Instagram captions for any topic in the tone you want — fun, professional, inspiring or short — with emojis and a call to action.",
+            "steps": [
+                "Enter what your post is about.",
+                "Choose a tone and whether to include emojis and a question.",
+                "Copy a caption and make it your own."
+            ],
+            "about": "The first line of a caption is what people see before “more”, so make it count. Ending with a question or a clear call to action invites comments. Instagram captions can be up to 2,200 characters, but short captions often work best for quick, visual posts.",
+            "faqs": [
+                {
+                    "q": "How long should an Instagram caption be?",
+                    "a": "Short captions suit eye-catching photos; longer captions work for stories, tips and personal posts. The limit is 2,200 characters."
+                },
+                {
+                    "q": "Where should I put hashtags?",
+                    "a": "At the end of the caption or in the first comment both work. Use our Hashtag Generator to find relevant ones."
+                },
+                {
+                    "q": "Can I use these captions for business posts?",
+                    "a": "Yes — choose the professional tone and add details about your product or offer."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that shows up on Google?",
+                "text": "I build SEO-friendly websites with the basics done right — titles, descriptions, speed and mobile."
+            },
+            "topics": [
+                "instagram",
+                "caption",
+                "social media"
+            ]
+        },
+        {
+            "slug": "hashtag-generator",
+            "name": "Hashtag Generator",
+            "category": "social",
+            "icon": "fa-solid fa-hashtag",
+            "summary": "Generate relevant hashtags for Instagram, TikTok, X and LinkedIn from your keywords, then copy them in one click.",
+            "steps": [
+                "Type a few keywords that describe your post.",
+                "Choose the platform and how many hashtags you want.",
+                "Remove any that don’t fit, then copy the rest."
+            ],
+            "about": "Hashtags help people who don’t follow you find your posts. A mix of broad and specific tags works better than using only the most popular ones, where posts get buried quickly. Instagram allows up to 30 hashtags per post, but 5–15 relevant ones is usually plenty; on LinkedIn and X, 2–5 is better.",
+            "faqs": [
+                {
+                    "q": "How many hashtags should I use?",
+                    "a": "Around 5–15 on Instagram and TikTok, 2–5 on LinkedIn and X. Relevance matters more than quantity."
+                },
+                {
+                    "q": "Should I use the most popular hashtags?",
+                    "a": "Mix them. Very popular tags move fast, so smaller, specific tags often bring more of the right people."
+                },
+                {
+                    "q": "Can I use local hashtags?",
+                    "a": "Yes — add your city, like Lahore or Karachi, to the keywords to get location-based tags."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that shows up on Google?",
+                "text": "I build SEO-friendly websites with the basics done right — titles, descriptions, speed and mobile."
+            },
+            "topics": [
+                "hashtag",
+                "instagram",
+                "social media",
+                "tiktok"
+            ]
+        },
+        {
+            "slug": "meta-description-generator",
+            "name": "Meta Description Generator",
+            "category": "social",
+            "icon": "fa-solid fa-magnifying-glass",
+            "summary": "Write SEO meta descriptions that fit Google’s length, include your keyword and invite the click — with a live search result preview.",
+            "steps": [
+                "Enter your page title, main keyword and what makes the page useful.",
+                "Pick a description, or edit one in the preview box.",
+                "Check the length bar stays green, then copy it into your website."
+            ],
+            "about": "A meta description is the short summary under your page title in Google search results. It doesn’t directly change your ranking, but a clear, relevant description gets more people to click. Google usually shows around 150–160 characters on desktop, so the generator keeps descriptions within that length.",
+            "faqs": [
+                {
+                    "q": "How long should a meta description be?",
+                    "a": "About 120–160 characters. Shorter can look thin; longer is usually cut off with “…”."
+                },
+                {
+                    "q": "Does Google always use my description?",
+                    "a": "Not always. Google sometimes picks text from the page that better matches the search, but a good description is used more often."
+                },
+                {
+                    "q": "Should every page have a different description?",
+                    "a": "Yes. Each page should have its own description that matches what that page is about."
+                }
+            ],
+            "pitch": {
+                "service": "website-development",
+                "title": "Want a website that shows up on Google?",
+                "text": "I build SEO-friendly websites with the basics done right — titles, descriptions, speed and mobile."
+            },
+            "topics": [
+                "seo",
+                "meta description",
+                "google",
+                "search",
+                "blog"
+            ]
+        }
+    ],
+    "services": [
+        {
+            "slug": "website-development",
+            "title": "Website Development",
+            "icon": "fa-solid fa-code",
+            "summary": "Business websites, portfolios and custom web apps — fast, mobile-friendly and easy for you to update.",
+            "includes": [
+                "Business and portfolio websites",
+                "Custom web apps and admin dashboards (Laravel, PHP, MySQL)",
+                "Contact forms, bookings and lead capture",
+                "Speed, SEO basics and mobile layout",
+                "Fixes, updates and ongoing maintenance"
+            ],
+            "details": "I’ve built websites and business apps for clients on Fiverr and Upwork since 2022 — from simple company sites to dashboards with logins, roles and reports.\n\n## How it works\n1. **Tell me what you need.** A quick call or message about your business and goals.\n2. **Get a clear quote.** Pages, features, timeline and price, in writing.\n3. **Review as I build.** You see progress and request changes along the way.\n4. **Launch and hand-over.** I set it live and show you how to manage it.",
+            "priceLabel": null,
+            "sortOrder": 1
+        },
+        {
+            "slug": "customer-support",
+            "title": "Customer Support",
+            "icon": "fa-solid fa-headset",
+            "summary": "Friendly, reliable support for your customers by email, chat and phone — so no message goes unanswered.",
+            "includes": [
+                "Email, live chat and WhatsApp support",
+                "Order, booking and account questions",
+                "Follow-ups and complaint handling",
+                "CRM and ticket updates",
+                "Support for US and international time zones"
+            ],
+            "details": "I work with US-based businesses every day, handling customer conversations and making sure issues are followed through to the end.\n\nYou get clear, polite replies in your brand’s voice, and a short summary of what customers are asking about so you can spot problems early.",
+            "priceLabel": null,
+            "sortOrder": 2
+        },
+        {
+            "slug": "business-support",
+            "title": "Business Support",
+            "icon": "fa-solid fa-briefcase",
+            "summary": "Remote help with the day-to-day work that keeps a business running — reports, follow-ups, admin and coordination.",
+            "includes": [
+                "Virtual assistance and admin work",
+                "Daily, weekly and monthly reports",
+                "Data entry and spreadsheet clean-up",
+                "Team coordination and follow-ups",
+                "Account and vendor communication"
+            ],
+            "details": "As a Virtual Development Manager I coordinate with business owners, managers and frontline teams across 13 retail stores. I bring the same organisation to your business: tasks tracked, follow-ups done, and reports on time.",
+            "priceLabel": null,
+            "sortOrder": 3
+        },
+        {
+            "slug": "sales-operations",
+            "title": "Sales & Operations",
+            "icon": "fa-solid fa-chart-line",
+            "summary": "KPI tracking, sales strategy and staff coaching to help stores and sales teams hit their numbers.",
+            "includes": [
+                "KPI dashboards and performance reports",
+                "Sales strategy and target planning",
+                "Frontline staff coaching",
+                "Store and customer-interaction reviews",
+                "Dealer and partner account management"
+            ],
+            "details": "I manage relationships with US mobile phone dealers across 13 retail stores — tracking performance, finding gaps and coaching teams to close them. If your sales numbers aren’t where they should be, I’ll help you find out why.",
+            "priceLabel": null,
+            "sortOrder": 4
+        },
+        {
+            "slug": "custom-tools-automation",
+            "title": "Custom Tools & Automation",
+            "icon": "fa-solid fa-screwdriver-wrench",
+            "summary": "Calculators, report kits, Chrome extensions and small automations that save your team hours every week.",
+            "includes": [
+                "Web-based calculators and mini apps",
+                "Spreadsheet systems and report kits",
+                "Chrome extensions",
+                "Automating repetitive tasks",
+                "Ready-made tools in the Tools section"
+            ],
+            "details": "If your team repeats the same task every day, there’s usually a small tool that can do it in a minute. Browse the [shop](/shop) and [free tools](/free-tools), or ask for something built around your exact process.",
+            "priceLabel": null,
+            "sortOrder": 5
+        }
+    ],
+    "projects": [
+        {
+            "slug": "automating-multi-store-reporting",
+            "title": "Automating multi-store reporting",
+            "summary": "How I turn the repetitive parts of managing 13 US retail stores into tools and automations — so reports are consistent, ready on time, and I spend my hours on the work that needs a person.",
+            "role": "Virtual Development Manager & Team Lead",
+            "year": "2024 – now",
+            "tech": [
+                "KPI design",
+                "Spreadsheet automation",
+                "Web tools",
+                "Store monitoring"
+            ],
+            "url": null,
+            "image": null,
+            "challenge": "I’m the main contact for two US mobile phone dealer organizations that run **13 retail stores** between them. The dealers depend on clear daily, weekly and monthly numbers to see which stores are doing well, where the gaps are, and who needs coaching.\n\nDoing that by hand means repeating the same steps for every store, every day: collecting figures, working out the KPIs, comparing them with targets and turning them into something a dealer can read in a minute. It’s slow, it leaves room for copy-and-paste mistakes, and it has to be ready before the dealers start their day in the US.",
+            "approach": "My rule is simple: **if I do the same task more than a few times, I build a tool or an automation for it.**\n\n- **One standard format for every store.** Each store reports the same KPIs — foot traffic, conversion, average ticket, accessory attach rate and sales per staff hour — so stores can be compared fairly.\n- **Formulas and automation instead of manual maths.** The KPIs and the gaps against target are calculated automatically, so the numbers are consistent and the same every time.\n- **Small web tools for quick checks.** When I need an answer on the spot, a simple tool beats a spreadsheet, so I build small calculators for the checks I repeat most.\n- **Built so the team can use it too.** The tools are simple enough for my remote team to run, so the process doesn’t depend on one person.",
+            "outcome": "- Reports are **consistent across all 13 stores**, so dealer reviews start from numbers everyone trusts.\n- Less time goes into repetitive data work and **more into the parts that need a person**: coaching staff, planning with dealers and fixing what slows a store down.\n- The same approach now powers the [free tools](/free-tools) on this website — built for problems I had myself, then opened up for everyone.\n\n**Want the same for your business?** If your team repeats the same task every day, there’s usually a tool that can do it in a minute."
+        }
+    ],
+    "posts": [
+        {
+            "slug": "welcome-to-bytebench",
+            "title": "Welcome to Bytebench: what I do and what you’ll find here",
+            "category": "Personal",
+            "excerpt": "Websites, support, tools and a blog about whatever I’m working on — here’s what this site is for.",
+            "body": "Hi, I’m Usman. This site is where everything I do comes together.\n\n## What I do\n- **Build websites and web apps** for businesses and individuals.\n- **Customer and business support** — the day-to-day work that keeps a business running.\n- **Sales and operations** work with retail teams in the US.\n- **Tools** — free and paid — that save time on repetitive work.\n\n## What I’ll write about\nThe blog isn’t only about one topic. Expect news I find interesting, practical guides on sales and web development, updates on what I’m building, and the occasional personal post.\n\nIf you need help with any of this, [get in touch](/contact) — or just subscribe below to follow along.",
+            "cover": null,
+            "publishedAt": "2026-10-25",
+            "readingMinutes": 1
+        }
+    ],
+    "products": [],
+    "legal": [
+        {
+            "slug": "privacy-policy",
+            "title": "Privacy Policy",
+            "body": "This Privacy Policy explains what information Bytebench (“we”, “us”, “our”), available at the Bytebench website, collects when you visit, how it is used, and the choices you have. The site is operated by Syed Muhammad Usman Shah, Lahore, Pakistan.\n\nBy using this site you agree to this policy. If you do not agree, please do not use the site.\n\n## Information we collect\n\n### Information you give us\n\n- **Contact form:** your name, email address, subject and message.\n\n- **Purchase requests:** your name, email address, and optionally your phone or WhatsApp number, country and message, so we can contact you about buying a tool.\n\n- **Newsletter:** your email address, if you subscribe.\n\n- **Call bookings:** your name, email address, optional WhatsApp number, the topic and notes you write, the time you pick and your time zone, so we can confirm and hold the call.\n\n### Information collected automatically\n\n- **Log data:** like most websites, our server records your IP address, browser type, the pages you visit, the time of your visit and the referring page. We also store the IP address submitted with forms to prevent spam and abuse.\n\n- **Cookies:** small files stored by your browser. See the [Cookie Policy]() for details.\n\nFree tools that run on this site (such as calculators) process what you type in your browser. That data is not sent to or stored on our server.\n\n## How we use your information\n\n- To reply to messages, booking and purchase requests, arrange payment, and deliver tools you buy.\n\n- To send the newsletter you subscribed to. Every email lets you unsubscribe.\n\n- To run, secure and improve the site, and to understand which content is useful.\n\n- To show advertising that helps keep the site and its free tools available.\n\n- To meet legal obligations.\n\nWe do not sell your personal information.\n\n## Advertising and Google AdSense\n\nThis site may display advertisements served by Google AdSense and other third-party advertising vendors.\n\n- Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites.\n\n- Google’s use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.\n\n- You may opt out of personalized advertising by visiting [Google Ads Settings](https://adssettings.google.com). You can also opt out of some third-party vendors’ use of cookies for personalized advertising at [www.aboutads.info](https://www.aboutads.info/choices/) or, in Europe, [www.youronlinechoices.eu](https://www.youronlinechoices.eu/).\n\n- If you opt out, you may still see ads, but they will not be personalized.\n\nLearn more about [how Google uses information from sites or apps that use its services](https://policies.google.com/technologies/partner-sites) and about [how Google uses cookies in advertising](https://policies.google.com/technologies/ads).\n\nVisitors in the European Economic Area, the United Kingdom and Switzerland are asked for consent before personalized ads or non-essential cookies are used, through a Google-certified consent tool. You can change your choice at any time using the privacy settings link shown by that tool.\n\n## Analytics\n\nWe may use Google Analytics to understand how visitors use the site, such as which pages are viewed and how long visits last. Google Analytics uses cookies and collects information such as your IP address (shortened before storage) and device details. You can opt out using the [Google Analytics opt-out browser add-on](https://tools.google.com/dlpage/gaoptout).\n\nWe may also use Microsoft Clarity to see how visitors use the site through behavioral metrics, heatmaps and session replay, so we can improve the site. Website usage data is captured using first- and third-party cookies and other tracking technologies. For more information about how Microsoft collects and uses your data, see the [Microsoft Privacy Statement](https://www.microsoft.com/privacy/privacystatement).\n\nThe free tools remember the last few tools you opened (“Recently used”) in your own browser’s storage. This list never leaves your device, and you can clear it by clearing your browser’s site data.\n\n## Sharing your information\n\nWe only share personal information:\n\n- with service providers who help run the site, such as our web host and email provider, only as needed to provide their service;\n\n- with payment providers you choose to pay through, such as a bank, JazzCash, Easypaisa or an international transfer service;\n\n- when required by law, or to protect the rights and safety of the site, its users or others.\n\n## How long we keep information\n\nContact messages and purchase requests are kept for as long as needed to respond and to keep records of sales, normally up to three years. Newsletter emails are kept until you unsubscribe. Server logs are kept for a limited period for security.\n\n## Your rights\n\nDepending on where you live, you may have the right to access, correct, delete or receive a copy of your personal information, to object to or restrict how we use it, and to withdraw consent. To make a request, email [usman4588408@gmail.com](mailto:usman4588408@gmail.com). We will respond within 30 days.\n\nCalifornia residents may request what personal information we have collected and ask for it to be deleted. We do not sell or share personal information for cross-context behavioral advertising except through the advertising cookies described above, which you can control as explained.\n\n## Children’s privacy\n\nThis site is not directed at children under 13, and we do not knowingly collect personal information from them. If you believe a child has given us personal information, contact us and we will delete it.\n\n## Security\n\nWe use reasonable measures to protect your information, including encrypted connections (HTTPS) and restricted access to the admin area. No method of transmission or storage is completely secure.\n\n## Links to other sites\n\nThis site links to other websites, such as the Chrome Web Store. We are not responsible for their privacy practices. Please read their policies.\n\n## Changes to this policy\n\nWe may update this policy. The “Last updated” date at the top shows when it last changed. Significant changes will be noted on this page.\n\n## Contact\n\nQuestions about this policy: [usman4588408@gmail.com](mailto:usman4588408@gmail.com), or use the [contact page](/contact)."
+        },
+        {
+            "slug": "terms",
+            "title": "Terms and Conditions",
+            "body": "These Terms and Conditions (“Terms”) govern your use of Bytebench at the Bytebench website, including its blog, services, free tools and paid tools. By using the site you accept these Terms. If you do not accept them, please do not use the site.\n\n## Using the site\n\nYou may read the content and use the free tools for personal and business purposes. You agree not to:\n\n- copy or republish articles or tools in full without written permission (short quotes with a link back are fine);\n\n- attempt to break, overload or gain unauthorized access to the site;\n\n- submit false information, spam or harmful content through any form;\n\n- click advertisements artificially or encourage others to do so.\n\n## Free tools\n\nFree tools are provided “as is”, without any warranty. Results from calculators and similar tools are estimates based on what you enter. Check important figures yourself before relying on them for business decisions.\n\n## Paid tools\n\n- **Ordering:** sending a purchase request does not create a binding order. We will contact you to confirm the price, payment method and delivery. A purchase is complete once payment is received and confirmed.\n\n- **Prices:** prices shown may change. The price confirmed with you before payment is the price you pay.\n\n- **Delivery:** downloadable tools are sent through a private download link that expires after a set time. Download and back up your files before the link expires.\n\n- **Licence:** unless agreed otherwise in writing, a purchase gives you a non-exclusive, non-transferable licence to use the tool for yourself or your own business. You may not resell, share publicly or redistribute it.\n\n- **Refunds:** see the [Refund Policy]().\n\n## Services\n\n- Services such as website development, customer support and business support start after we agree the scope, timeline and price in writing (email or WhatsApp is fine).\n\n- Payment terms — for example an advance and a final payment — are agreed per project before work begins.\n\n- Work is delivered remotely. You are responsible for giving accurate information and any access needed (accounts, content, logins) in good time.\n\n- For website projects, ownership of the finished site passes to you once paid in full. I may show the finished work in my portfolio unless you ask me not to.\n\n## Chrome extensions and third-party services\n\nExtensions are distributed through the Chrome Web Store and are also subject to Google’s terms. Links to third-party sites are provided for convenience; we are not responsible for their content or services.\n\n## Intellectual property\n\nAll content on this site — including text, graphics, logos, tools and code — belongs to Syed Muhammad Usman Shah unless stated otherwise, and is protected by copyright law.\n\n## Limitation of liability\n\nTo the fullest extent allowed by law, we are not liable for any indirect, incidental or consequential loss, including lost profits or data, arising from your use of the site or its tools. Our total liability for any paid tool is limited to the amount you paid for it.\n\n## Changes and availability\n\nWe may change, suspend or remove any part of the site, and may update these Terms at any time. The “Last updated” date shows the latest version. Continued use of the site means you accept the updated Terms.\n\n## Governing law\n\nThese Terms are governed by the laws of Pakistan. Any dispute will be handled by the courts of Lahore, unless the law of your country requires otherwise.\n\n## Contact\n\nQuestions about these Terms: [usman4588408@gmail.com](mailto:usman4588408@gmail.com)."
+        },
+        {
+            "slug": "disclaimer",
+            "title": "Disclaimer",
+            "body": "The information on Bytebench is published in good faith for general information and education only.\n\n## No professional advice\n\nArticles about sales, retail operations, business performance and technology reflect personal experience and opinion. They are not financial, legal, accounting or professional business advice. Consider your own situation and consult a qualified professional before making important decisions.\n\n## Accuracy\n\nWe try to keep content accurate and up to date, but we make no guarantees about its completeness, reliability or accuracy. Any action you take based on information on this site is at your own risk.\n\n## Tools\n\nResults from free and paid tools depend on the information you enter and are provided as estimates. We are not responsible for decisions made based on those results.\n\n## Advertising and links\n\nThis site may display advertisements from Google AdSense and other networks. Ads are selected by the ad network; showing an ad does not mean we endorse the product or company. External links lead to sites we do not control, and we are not responsible for their content.\n\n## Affiliate links\n\nSome posts may contain affiliate links, which means we may earn a small commission if you buy through them, at no extra cost to you. Any affiliate link will be clearly marked in the post.\n\n## Views expressed\n\nOpinions on this site are those of the author and do not represent any employer, client or organization.\n\nQuestions: [contact us](/contact)."
+        },
+        {
+            "slug": "cookie-policy",
+            "title": "Cookie Policy",
+            "body": "This page explains how Bytebench uses cookies and similar technologies, and how you can control them.\n\n## What cookies are\n\nCookies are small text files that a website stores in your browser. They let the site remember things between pages and visits.\n\n## Cookies we use\n\n    CookieSet byPurposeType\n\n        Session and XSRF-TOKENThis siteKeep forms secure and remember your session while you browseStrictly necessary\n        theme (browser storage)This siteRemember whether you chose light or dark modePreference\n        cookie_notice (browser storage)This siteRemember that you closed the cookie noticePreference\n        Google Analytics (_ga, _ga_*)GoogleCount visits and see which pages are usedAnalytics\n        Microsoft Clarity (_clck, _clsk, CLID, MUID)MicrosoftSee how pages are used (heatmaps and session replays) so we can improve the siteAnalytics\n        bb_recent_tools (browser storage)This siteRemember the free tools you used recently, only on your devicePreference\n        Google AdSense (e.g. __gads, __gpi, IDE)Google and partnersShow ads, limit how often you see the same ad, and, with consent where required, personalize adsAdvertising\n        Consent cookies (e.g. FCCDCF, FCNEC)GoogleStore your consent choicesStrictly necessary\n\nThird parties set their own cookies, and the exact names can change. See [Google’s cookie list](https://policies.google.com/technologies/cookies) for current details.\n\n## Your choices\n\n- **Consent tool:** visitors in the EEA, UK and Switzerland can accept or reject non-essential cookies in the consent message, and change their choice later from the privacy settings link.\n\n- **Personalized ads:** manage them at [Google Ads Settings](https://adssettings.google.com) or [aboutads.info](https://www.aboutads.info/choices/).\n\n- **Browser settings:** you can block or delete cookies in your browser. Blocking strictly necessary cookies may stop forms from working.\n\nMore about how we handle personal information is in the [Privacy Policy]()."
+        },
+        {
+            "slug": "refund-policy",
+            "title": "Refund Policy",
+            "body": "This policy applies to paid tools bought from Bytebench.\n\n## Before you buy\n\nEach tool page describes what the tool does. If you are not sure it fits your needs, ask before paying — send your question in the purchase request or through the [contact page](/contact).\n\n## Digital products\n\nPaid tools are digital products delivered by download link. Because a downloaded file cannot be returned, refunds are handled as follows:\n\n- **Not delivered:** if you paid but did not receive the tool within 3 business days, you are entitled to a full refund.\n\n- **Not working:** if the tool does not work as described and we cannot fix it within 7 days of your report, you will receive a full refund.\n\n- **Duplicate payment:** accidental duplicate payments are refunded in full.\n\n- **Change of mind:** after a tool has been downloaded, refunds for change of mind are not normally offered.\n\n## How to request a refund\n\nEmail [usman4588408@gmail.com](mailto:usman4588408@gmail.com) within 14 days of payment with your name, the tool, the payment date and a description of the problem. Approved refunds are sent back through the original payment method within 7 business days. Transfer fees charged by your bank or payment service may not be refundable."
+        }
+    ]
+}
