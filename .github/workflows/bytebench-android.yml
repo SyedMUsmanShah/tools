@@ -37,7 +37,9 @@ jobs:
       - name: Build APK
         run: ./gradlew --no-daemon --stacktrace assembleRelease
 
-      # The APK is kept private: nothing is uploaded, and copies from earlier runs are deleted.
+      # The APK is kept private: older copies are deleted, and the new one is stored only in
+      # encrypted form (keystore/apk-delivery.pub.pem). Without the private key, which never
+      # leaves the Claude session that delivers the APK, the stored file can't be opened.
       - name: Delete stored APK copies
         env:
           GH_TOKEN: ${{ github.token }}
@@ -45,6 +47,22 @@ jobs:
           for id in $(gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" --paginate -q '.artifacts[] | select(.name | startswith("Bytebench-")) | .id'); do
             gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/artifacts/$id" && echo "Deleted artifact $id"
           done
+
+      - name: Encrypt APK
+        run: |
+          mkdir -p out
+          openssl rand -out key.bin 32
+          openssl enc -aes-256-cbc -pbkdf2 -salt -pass file:key.bin \
+            -in app/build/outputs/apk/release/app-release.apk -out "out/Bytebench-${VERSION_NAME}.apk.enc"
+          openssl pkeyutl -encrypt -pubin -inkey keystore/apk-delivery.pub.pem \
+            -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -in key.bin -out out/key.enc
+          rm key.bin
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Bytebench-${{ env.VERSION_NAME }}-encrypted
+          path: bytebench-app/out/*
+          retention-days: 1
 
       - name: Remove the old public release
         env:

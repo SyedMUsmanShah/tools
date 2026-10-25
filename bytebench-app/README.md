@@ -6,9 +6,11 @@ in the website's three themes (Porcelain, Ink & Brass, Emerald).
 
 ## Get the APK
 
-Every push that changes this folder builds the app on GitHub Actions to check that it
-compiles. The APK itself is kept private: it isn't published or stored on GitHub.
-Build it on your own computer (see “Build it yourself” below), or ask for a copy.
+Every push that changes this folder builds the app on GitHub Actions. The APK is kept
+private: it is never published, and the build stores it only **encrypted** with
+`keystore/apk-delivery.pub.pem` (deleted after 1 day, or when the next build runs).
+Only the holder of the matching private key can open it. Ask for the APK in the chat,
+or build it yourself (see “Build it yourself” below).
 
 Updates install over the previous version because every build is signed with the same key
 (`keystore/debug.keystore`). That key is fine for sharing the APK yourself; for Google Play,
