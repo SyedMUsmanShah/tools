@@ -58,11 +58,19 @@ jobs:
             -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -in key.bin -out out/key.enc
           rm key.bin
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Bytebench-${{ env.VERSION_NAME }}-encrypted
-          path: bytebench-app/out/*
-          retention-days: 1
+      # Delivery: the encrypted APK is force-pushed as the only file on the "apk-delivery"
+      # branch (replaced on every build), so the Claude session can fetch it with git.
+      - name: Hand over the encrypted APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd out
+          git init -q -b apk-delivery
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -qm "Encrypted APK ${VERSION_NAME}"
+          git push -f -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" apk-delivery
 
       - name: Remove the old public release
         env:
