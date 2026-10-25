@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Long-press the app icon to jump straight into a tool. -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="qr"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_qr_short"
+        android:shortcutLongLabel="@string/shortcut_qr_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.bytebench.app"
+            android:targetClass="com.bytebench.app.MainActivity">
+            <extra android:name="tool" android:value="qr-code-generator" />
+        </intent>
+    </shortcut>
+    <shortcut
+        android:shortcutId="compress"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_compress_short"
+        android:shortcutLongLabel="@string/shortcut_compress_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.bytebench.app"
+            android:targetClass="com.bytebench.app.MainActivity">
+            <extra android:name="tool" android:value="image-compressor" />
+        </intent>
+    </shortcut>
+    <shortcut
+        android:shortcutId="invoice"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_invoice_short"
+        android:shortcutLongLabel="@string/shortcut_invoice_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.bytebench.app"
+            android:targetClass="com.bytebench.app.MainActivity">
+            <extra android:name="tool" android:value="invoice-generator" />
+        </intent>
+    </shortcut>
+    <shortcut
+        android:shortcutId="words"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_words_short"
+        android:shortcutLongLabel="@string/shortcut_words_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.bytebench.app"
+            android:targetClass="com.bytebench.app.MainActivity">
+            <extra android:name="tool" android:value="word-counter" />
+        </intent>
+    </shortcut>
+</shortcuts>
