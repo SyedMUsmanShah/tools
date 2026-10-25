@@ -8,8 +8,7 @@ in the website's three themes (Porcelain, Ink & Brass, Emerald).
 
 Every push that changes this folder builds the app on GitHub Actions. The APK is kept
 private: it is never published, and the build stores it only **encrypted** with
-`keystore/apk-delivery.pub.pem`, as the single file on the `apk-delivery` branch
-(replaced by every build).
+`keystore/apk-delivery.pub.pem` (deleted after 1 day, or when the next build runs).
 Only the holder of the matching private key can open it. Ask for the APK in the chat,
 or build it yourself (see “Build it yourself” below).
 
