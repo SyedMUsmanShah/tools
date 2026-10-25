@@ -34,7 +34,6 @@ import com.bytebench.app.nav.BookR
 import com.bytebench.app.nav.ContactR
 import com.bytebench.app.nav.SearchR
 import com.bytebench.app.nav.ServicesR
-import com.bytebench.app.nav.SettingsR
 import com.bytebench.app.nav.ShopR
 import com.bytebench.app.nav.ToolsR
 import com.bytebench.app.nav.WorkR
@@ -66,7 +65,6 @@ fun HomeScreen() {
         showBack = false,
         actions = {
             IconButton(onClick = { nav.navigate(SearchR) }) { FaIcon("fa-solid fa-magnifying-glass", contentDescription = "Search") }
-            IconButton(onClick = { nav.navigate(SettingsR) }) { FaIcon("fa-solid fa-sliders", contentDescription = "Settings") }
         },
     ) {
         // Hero
